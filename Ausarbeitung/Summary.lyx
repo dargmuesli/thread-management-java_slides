@@ -1,0 +1,1048 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+% in case somebody want to have the label "Equation"
+%\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
+
+% that links to image floats jumps to the beginning
+% of the float and not to its caption
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% makes caption labels bold
+% for more info about these settings, see
+% https://ctan.org/tex-archive/macros/latex/contrib/koma-script/doc/scrguien.pdf
+\setkomafont{captionlabel}{\bfseries}
+\setcapindent{1em}
+
+% enables calculations
+\usepackage{calc}
+
+% fancy page header/footer settings
+% for more information see section 9 of
+% ftp://www.ctan.org/pub/tex-archive/macros/latex2e/contrib/fancyhdr/fancyhdr.pdf
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% increases the bottom float placement fraction
+\renewcommand{\bottomfraction}{0.5}
+
+% avoids that floats are placed above its sections
+\let\mySection\section\renewcommand{\section}{\suppressfloats[t]\mySection}
+
+% increases link area for cross-references and autoname them
+% if you change the document language to e.g. French
+% you must change "extrasenglish" to "extrasfrench"
+% if you uncomment the following lines, you cannot use the reference version Ref+Text in LyX
+%\AtBeginDocument{%
+% \renewcommand{\ref}[1]{\autoref{#1}}
+%}
+%\def\refnamechanges{%
+% \renewcommand*{\equationautorefname}[1]{}
+% \renewcommand{\sectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\figureautorefname}{Fig.\negthinspace}
+% \renewcommand{\tableautorefname}{Tab.\negthinspace}
+%}
+%\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\end_preamble
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
+\use_default_options true
+\master Thread Management.lyx
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language german
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Your title"
+\pdf_author "Your name"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 1
+\branch Standalone
+\selected 1
+\filename_suffix 0
+\color #ff0000
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 1
+\math_indentation default
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptername
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Footer
+
+\end_layout
+
+\begin_layout Right Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Zusammenfassung
+\end_layout
+
+\begin_layout Standard
+Nun sind wir in der Lage, mit dem Grundbaustein von Parallelisierungsarbeiten
+ in Java – mit 
+\lang english
+Threads
+\lang german
+ – umzugehen.
+ Wir haben verstanden, welche Rolle 
+\lang english
+Threads
+\lang german
+ für das Betriebssystem spielen und wo sie uns, als Anwendungsentwickler,
+ helfen.
+ Wir wissen, was 
+\lang english
+Daemon
+\lang ngerman
+\SpecialChar nobreakdash
+
+\lang english
+Threads
+\lang german
+ sind, wie wir 
+\lang english
+Threads
+\lang german
+ gruppieren und wie wir mit Ausnahmen umgehen.
+ Wir kennen die Lebenszyklusabschnitte von 
+\lang english
+Threads
+\lang german
+ und sind bzgl.
+ Datenlokalität sensibilisiert.
+\end_layout
+
+\begin_layout Section
+Ausblick
+\end_layout
+
+\begin_layout Standard
+Dies ist die erste Ausarbeitung des Seminars 
+\lang english
+Java Concurrency
+\lang german
+ 2019 an der Universität Kassel.
+ Alle hier genannten Klassen sind Teil des 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+java.lang
+\end_layout
+
+\end_inset
+
+ Pakets.
+ Die folgenden Ausarbeitungen werden sich mit Javas höheren Parallelisierungskon
+zepten aus dem 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+java.util.concurrent
+\end_layout
+
+\end_inset
+
+ Paket auseinandersetzen.
+\end_layout
+
+\begin_layout Section
+Code
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Code"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der folgende Code fasst alle in diesem Dokument besprochenen Konzepte zusammen.
+\end_layout
+
+\begin_layout Standard
+
+\lang ngerman
+\begin_inset listings
+lstparams "language=Java,breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import java.util.Date;
+\end_layout
+
+\begin_layout Plain Layout
+
+import java.util.concurrent.ThreadFactory;
+\end_layout
+
+\begin_layout Plain Layout
+
+import java.util.concurrent.TimeUnit;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public class ThreadManagement {
+\end_layout
+
+\begin_layout Plain Layout
+
+  private static ThreadGroup lowPriorityThreadGroup = new ThreadGroup("Low
+ Priority Threads");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  // Ein Runnable, das die Werte seiner Felder ausgibt.
+\end_layout
+
+\begin_layout Plain Layout
+
+  static class LocalDataRunnable implements Runnable {
+\end_layout
+
+\begin_layout Plain Layout
+
+    private static ThreadLocal<Date> dateLocal = ThreadLocal.withInitial(Date::ne
+w);
+\end_layout
+
+\begin_layout Plain Layout
+
+    Date dateShared = new Date();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    @Override
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+      System.out.printf("[dateLocal] %s
+\backslash
+n", dateLocal.get());
+\end_layout
+
+\begin_layout Plain Layout
+
+      System.out.printf("[dateShared] %s
+\backslash
+n", dateShared);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  // Ein endloser Thread, der beim Unterbrechen eine NumberFormatException
+ (unchecked) wirft.
+\end_layout
+
+\begin_layout Plain Layout
+
+  static class EndlessThread extends Thread {
+\end_layout
+
+\begin_layout Plain Layout
+
+    @Override
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+      while (true) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+          sleep(1000);
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (InterruptedException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+          throw new NumberFormatException();
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+      }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  // Eine Fabrik für Threads niedriger Priorität.
+\end_layout
+
+\begin_layout Plain Layout
+
+  static class LowPriorityThreadFactory implements ThreadFactory {
+\end_layout
+
+\begin_layout Plain Layout
+
+    @Override
+\end_layout
+
+\begin_layout Plain Layout
+
+    public Thread newThread(Runnable r) {
+\end_layout
+
+\begin_layout Plain Layout
+
+      Thread newThread = new Thread(lowPriorityThreadGroup, r);
+\end_layout
+
+\begin_layout Plain Layout
+
+      newThread.setName("Low Priority Thread");
+\end_layout
+
+\begin_layout Plain Layout
+
+      newThread.setPriority(2);
+\end_layout
+
+\begin_layout Plain Layout
+
+      return newThread;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  // Eine Ausnahmebehandlung, die nur in die Konsole schreibt.
+\end_layout
+
+\begin_layout Plain Layout
+
+  static class UncaughtExceptionHandler implements Thread.UncaughtExceptionHandle
+r {
+\end_layout
+
+\begin_layout Plain Layout
+
+    @Override
+\end_layout
+
+\begin_layout Plain Layout
+
+    public void uncaughtException(Thread t, Throwable e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+      System.out.printf("Look! A %s!
+\backslash
+n", e);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  public static void main(String[] args) throws InterruptedException {
+\end_layout
+
+\begin_layout Plain Layout
+
+    Thread lowPriorityLocalDataThread = new LowPriorityThreadFactory().newThread(
+new LocalDataRunnable());
+\end_layout
+
+\begin_layout Plain Layout
+
+    Thread localDataThread = new Thread(new LocalDataRunnable());
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    // Allgemeine Infos ausgeben.
+\end_layout
+
+\begin_layout Plain Layout
+
+    System.out.printf("[lowPriorityFactoryThread] {id: %s, status: %s}
+\backslash
+n", lowPriorityLocalDataThread.getId(), lowPriorityLocalDataThread.getState());
+\end_layout
+
+\begin_layout Plain Layout
+
+    System.out.printf("[active threads in low priority thread group]: %d
+\backslash
+n", lowPriorityThreadGroup.activeCount());
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    // Zweifach, zeitversetzt die Datumswerte aus [LocalDataRunnable] ausgeben.
+\end_layout
+
+\begin_layout Plain Layout
+
+    lowPriorityLocalDataThread.start();
+\end_layout
+
+\begin_layout Plain Layout
+
+    lowPriorityLocalDataThread.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+    TimeUnit.SECONDS.sleep(2);
+\end_layout
+
+\begin_layout Plain Layout
+
+    localDataThread.start();
+\end_layout
+
+\begin_layout Plain Layout
+
+    localDataThread.join();
+\end_layout
+
+\begin_layout Plain Layout
+
+    // Auffällig ist, dass [dateShared] den zuerst gesetzten Wert beibehält.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    /* --- */
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    // Endlosen (nicht-Daemon-)Thread starten.
+\end_layout
+
+\begin_layout Plain Layout
+
+    Thread endlessThread = new EndlessThread();
+\end_layout
+
+\begin_layout Plain Layout
+
+    endlessThread.setUncaughtExceptionHandler(new UncaughtExceptionHandler());
+\end_layout
+
+\begin_layout Plain Layout
+
+    endlessThread.start();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    // Endlosen Daemon-Thread starten, der sekündlich überprüft, ob [endlessThre
+ad] unterbrochen wurde.
+\end_layout
+
+\begin_layout Plain Layout
+
+    Thread endlessDaemonThread = new Thread(() -> {
+\end_layout
+
+\begin_layout Plain Layout
+
+      while (true) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        try {
+\end_layout
+
+\begin_layout Plain Layout
+
+          if (endlessThread.isInterrupted()) {
+\end_layout
+
+\begin_layout Plain Layout
+
+            System.out.println("endlessThread is interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+          } else {
+\end_layout
+
+\begin_layout Plain Layout
+
+            System.out.println("endlessThread is not interrupted.");
+\end_layout
+
+\begin_layout Plain Layout
+
+          }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+          Thread.sleep(1000);
+\end_layout
+
+\begin_layout Plain Layout
+
+        } catch (InterruptedException e) {
+\end_layout
+
+\begin_layout Plain Layout
+
+          System.out.println("You'll never read this, when this thread is
+ the last thread running.");
+\end_layout
+
+\begin_layout Plain Layout
+
+          return;
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+      }
+\end_layout
+
+\begin_layout Plain Layout
+
+    });
+\end_layout
+
+\begin_layout Plain Layout
+
+    endlessDaemonThread.setDaemon(true);
+\end_layout
+
+\begin_layout Plain Layout
+
+    endlessDaemonThread.start();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    TimeUnit.SECONDS.sleep(2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    // [endlessThread] unterbrechen.
+\end_layout
+
+\begin_layout Plain Layout
+
+    System.out.println("I'm going to interrupt [endlessThread].");
+\end_layout
+
+\begin_layout Plain Layout
+
+    endlessThread.interrupt();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    // Die Ausführung endet, sobald nur noch der endlose Daemon-Thread läuft.
+ Es ist sehr unwahrscheinlich, dass "endlessDaemonThread is interrupted"
+ noch ausgegeben wird, weil dieser wahrscheinlich während des Schlafens
+ unterbrochen wird.
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Beispielausgabe:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fontsize{10pt}{10pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Verbatim
+
+[lowPriorityFactoryThread] {id: 12, status: NEW}
+\end_layout
+
+\begin_layout Verbatim
+
+[active threads in low priority thread group]: 0
+\end_layout
+
+\begin_layout Verbatim
+
+[dateLocal] Fri Nov 01 20:00:00 CET 2019
+\end_layout
+
+\begin_layout Verbatim
+
+[dateShared] Fri Nov 01 20:00:00 CET 2019
+\end_layout
+
+\begin_layout Verbatim
+
+[dateLocal] Fri Nov 01 20:00:02 CET 2019
+\end_layout
+
+\begin_layout Verbatim
+
+[dateShared] Fri Nov 01 20:00:00 CET 2019
+\end_layout
+
+\begin_layout Verbatim
+
+endlessThread is not interrupted.
+\end_layout
+
+\begin_layout Verbatim
+
+endlessThread is not interrupted.
+\end_layout
+
+\begin_layout Verbatim
+
+I'm going to interrupt [endlessThread].
+\end_layout
+
+\begin_layout Verbatim
+
+endlessThread is not interrupted.
+\end_layout
+
+\begin_layout Verbatim
+
+Look! A java.lang.NumberFormatException!
+\end_layout
+
+\begin_layout Verbatim
+
+\end_layout
+
+\begin_layout Verbatim
+
+Process finished with exit code 0
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Standalone
+inverted 0
+status collapsed
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The contents of this branch is only output if this chapter is processed
+ on its own, i.
+\begin_inset space \thinspace{}
+\end_inset
+
+e., not from the master.
+ This allows you to have a bibliography and a nomenclature if you only want
+ to output this chapter.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Bibliography.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
