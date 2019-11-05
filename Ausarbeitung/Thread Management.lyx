@@ -6,6 +6,9 @@
 \origin unavailable
 \textclass scrbook
 \begin_preamble
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
 % Scale source code font
 \usepackage{etoolbox}
 \AtBeginEnvironment{minted}{%\singlespacing%
