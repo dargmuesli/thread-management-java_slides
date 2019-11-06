@@ -196,47 +196,6 @@ Threads
 \end_layout
 
 \begin_layout Section
-Ausblick
-\end_layout
-
-\begin_layout Standard
-Dies ist die erste Ausarbeitung des Seminars 
-\lang english
-Java Concurrency
-\lang german
- 2019 an der Universität Kassel.
- Alle hier genannten Klassen sind Teil des 
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-java.lang
-\end_layout
-
-\end_inset
-
- Pakets.
- Die folgenden Ausarbeitungen werden sich mit Javas höheren Parallelisierungskon
-zepten aus dem 
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-java.util.concurrent
-\end_layout
-
-\end_inset
-
- Paket auseinandersetzen.
-\end_layout
-
-\begin_layout Section
 Code
 \begin_inset CommandInset label
 LatexCommand label
