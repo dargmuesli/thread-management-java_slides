@@ -820,6 +820,100 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+Threads und verbundene Klassen sind elementare Bestandteile von Java und
+ existieren seit Java Version 1.
+ Die einzige nennenswerte Änderung an der Klasse
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+Thread
+\end_layout
+
+\end_inset
+
+ selbst ist das Entfernen der Methoden
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+destroy()
+\end_layout
+
+\end_inset
+
+ und 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+stop()
+\end_layout
+
+\end_inset
+
+ in Java 11
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8204243"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ Die Methoden waren schon lange als 
+\shape italic
+\lang english
+deprecated
+\shape default
+\lang german
+ markiert und unfunktional oder gar nicht erst implementiert.
+ Grund dafür war, dass die Verwendung dieser Methoden zu Deadlocks oder
+ undefiniertem Verhalten führen konnte
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https://docs.oracle.com/javase/9/docs/api/java/lang/Thread.html"
+
+\end_inset
+
+, siehe genannte Methoden.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Branch Standalone
 inverted 0
 status collapsed

@@ -405,26 +405,6 @@ filename "DataLocality.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch Changes
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Changes.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Branch Summary
 inverted 0
 status open
