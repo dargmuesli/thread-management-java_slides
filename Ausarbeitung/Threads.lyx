@@ -190,7 +190,7 @@ Threads
 
 \begin_layout Standard
 Offensichtlich ist es auch für Maschinen mit nur einem Prozessorkern möglich,
- mehrere Aufgaben parallel abzuarbeiten.
+ mehrere Aufgaben nebenläufig abzuarbeiten.
  Dies wird durch 
 \shape italic
 \lang english
@@ -217,7 +217,7 @@ target "https://en.wikipedia.org/wiki/Preemption_(computing)#Time_slice"
 \end_layout
 
 \begin_layout Standard
-Möchte ein Java-Anwendungsentwickler also eine parallel laufende Berechnung
+Möchte ein Java-Anwendungsentwickler also eine nebenläufig laufende Berechnung
  starten, kann er diese in einem neue 
 \lang english
 Thread

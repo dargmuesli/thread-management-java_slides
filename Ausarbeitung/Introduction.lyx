@@ -166,8 +166,8 @@ Einführung
 Softwareentwickler nichttrivialer Anwendungen gelangen früher oder später
  an den Punkt, an dem eine Anwendung mehrere Operationen gleichzeitig ausführen
  können muss.
- Sei es zur Anzeige einer Benutzeroberfläche, zur parallelen Datenverarbeitung
- oder zum nichtblockierenden Warten.
+ Sei es zur Anzeige einer Benutzeroberfläche, zur nebenläufigen Datenverarbeitun
+g oder zum nichtblockierenden Warten.
  Denn der Einsatz von Computern verfolgt in erster Linie das Ziel, Produktivität
  zu erhöhen.
  Zum einen soll Software die Ressourcen eines Computers optimal nutzen,
@@ -184,15 +184,15 @@ Threads
 \end_layout
 
 \begin_layout Standard
-Insbesondere bei Programmiersprachen wie Java lohnt sich die Kenntnis paralleler
- Programmierkonzepte.
+Insbesondere bei Programmiersprachen wie Java lohnt sich die Kenntnis nebenläufi
+ger Programmierkonzepte.
  Denn auch schon einfache Java\SpecialChar nobreakdash
 Programme profitieren zur Laufzeit in Form
  eines im Hintergrund arbeitenden 
 \lang english
 Garbage Collectors
 \lang ngerman
- (GC) von paralleler Programmierung.
+ (GC) von nebenläufiger Programmierung.
  Der GC entfernt automatisch unreferenzierte Objekte und gibt damit Speicher
  frei.
  Dadurch müssen sich Java\SpecialChar nobreakdash
