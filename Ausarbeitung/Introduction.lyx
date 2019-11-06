@@ -127,7 +127,7 @@ customHeadersFooters
 \suppress_date false
 \justification true
 \use_refstyle 0
-\use_minted 0
+\use_minted 1
 \branch Standalone
 \selected 1
 \filename_suffix 0
