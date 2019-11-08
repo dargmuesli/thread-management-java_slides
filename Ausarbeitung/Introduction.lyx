@@ -202,8 +202,8 @@ Diese Ausarbeitung ordnet den Begriff
 \lang english
 Threads
 \lang ngerman
- im Kontext von Betriebssystem und Softwareentwicklung ein und erläutert
- den üblichen Umgang mit 
+ in den Kontext von Betriebssystemen ein und erläutert den üblichen Umgang
+ mit 
 \lang english
 Thread
 \lang ngerman
@@ -232,11 +232,12 @@ Zuerst wird das Konzept von
 Threads
 \lang ngerman
  geklärt.
- Nach einer Erläuterung der Eigenschaften von 
+ Nach der Erläuterung von 
 \lang english
-Threads
+Thread
 \lang ngerman
-, wird die Rolle von 
+\SpecialChar nobreakdash
+Eigenschaften, wird die Rolle von 
 \lang english
 Daemon
 \lang ngerman

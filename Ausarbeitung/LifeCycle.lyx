@@ -67,7 +67,7 @@
 customHeadersFooters
 \end_modules
 \maintain_unincluded_children false
-\language german
+\language ngerman
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -142,7 +142,7 @@ customHeadersFooters
 \is_math_indent 1
 \math_indentation default
 \math_numbering_side default
-\quotes_style english
+\quotes_style german
 \dynamic_quotes 0
 \papercolumns 1
 \papersides 2
@@ -157,35 +157,121 @@ customHeadersFooters
 \begin_body
 
 \begin_layout Chapter
-Lebenszyklus
+Mit 
+\lang english
+Threads
+\lang ngerman
+ arbeiten
 \end_layout
 
 \begin_layout Standard
-Im Folgenden werden Möglichkeiten erläutert, zwischen den aus dem Abschnitt
- Eigenschaften 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "thread-statuses"
-plural "false"
-caps "false"
-noprefix "false"
+Im Folgenden wird der Umgang mit 
+\lang english
+Thread
+\lang ngerman
+\SpecialChar nobreakdash
+Objekten zur nebenläufigen Programmierung in Java vorgestellt.
+ Alle genannten Klassen sind Teil des 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+java.lang
+\end_layout
 
 \end_inset
 
- bekannten Thread Status zu wechseln.
+
+\begin_inset space ~
+\end_inset
+
+Pakets
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Dokumentation: 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/package-summary.html"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Section
-Erzeugen und Ausführen
+\end_inset
+
+, welches schon seit Version
+\begin_inset space ~
+\end_inset
+
+1 in Java enthalten
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Seit Version
+\begin_inset space ~
+\end_inset
+
+1.5 erleichtern die Hilfsklassen im 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+java.util.concurrent
 \end_layout
 
-\begin_layout Standard
-Java ermöglicht zwei Methoden, 
-\lang english
-Threads
-\lang german
- zu erzeugen.
- Entweder kann die Klasse
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Paket die nebenläufige Programmierung in Java.
+\end_layout
+
+\end_inset
+
+ ist und an welchem mittlerweile kaum noch etwas verändert wird.
+ Die einzige nennenswerte Änderung ist das Entfernen der Methoden
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+destroy()
+\end_layout
+
+\end_inset
+
+ und 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+stop()
+\end_layout
+
+\end_inset
+
+ aus der Klasse
 \begin_inset space ~
 \end_inset
 
@@ -202,15 +288,87 @@ Thread
 
 \end_inset
 
- direkt erweitert werden oder es wird ein 
+ in Java 11
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8204243"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ Die Methoden waren schon lange als 
+\shape italic
 \lang english
+deprecated
+\shape default
+\lang ngerman
+ markiert und unfunktional oder gar nicht erst implementiert.
+ Grund dafür war, dass die Verwendung dieser Methoden zu Deadlocks oder
+ undefiniertem Verhalten führen konnte.
+\end_layout
+
+\begin_layout Section
+Erzeugen und Ausführen
+\end_layout
+
+\begin_layout Standard
+Es gibt in Java zwei Möglichkeiten, 
+\lang english
+Thread\SpecialChar nobreakdash
+
+\lang ngerman
+Objekte zu erzeugen.
+ Entweder erstellt man eine Unterklasse der Klasse
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
 Thread
-\lang german
-\SpecialChar nobreakdash
-Objekt von einer selbst erstellten Klasse erzeugt, die das 
+\end_layout
+
+\end_inset
+
+ oder man instanziiert die Klasse
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+Thread
+\end_layout
+
+\end_inset
+
+ mithilfe eines 
+\shape italic
+Runnables
+\shape default
+, also einem Objekt, das das 
 \lang english
 Interface
-\lang german
+\lang ngerman
 
 \begin_inset space ~
 \end_inset
@@ -246,15 +404,12 @@ run()
 
 \end_inset
 
- definiert werden, die festlegt, was der jeweilige 
+ überschrieben werden, die festlegt, was der jeweilige 
 \lang english
 Thread
-\lang german
+\lang ngerman
  nach dem Starten ausführen soll.
-\end_layout
-
-\begin_layout Standard
-Das Implementieren von 
+ Das Implementieren von 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -284,57 +439,44 @@ Thread
 
 \end_inset
 
- vorgezogen.
- Denn oft können eigene Klassen, die um die Fähigkeit erweitert werden sollen,
- per 
-\lang english
-Thread
-\lang german
- ausgeführt zu werden, nicht Unterklasse von 
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-Thread
-\end_layout
-
-\end_inset
-
- sein.
-\end_layout
-
-\begin_layout Standard
-Soll zusätzliche Kontrolle über den Erzeugungsprozess von 
-\lang english
-Threads
-\lang german
- erlangt werden, können diese nach dem 
-\lang english
-Factory Pattern
-\lang german
-
+ vorgezogen, weil Javas Vererbungshierarchie
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Zusätzliche Infos dazu in: Joshua Bloch.
- Effective Java.
- Addison Wesley, 1.
+Siehe Kapitel 5.8 in: Christian Ullenboom.
+ 
+\shape italic
+Java ist auch eine Insel
+\shape default
+.
+ Rheinwerk Verlag GmbH, 1.
  Jan.
- 2018.
- ISBN: 0134685997.
+ 2019.
+ ISBN: 3836267217.
 \end_layout
 
 \end_inset
 
- erzeugt werden.
- Dafür muss in einer eigenen Klasse das 
+ das Erben von mehr als einer Klasse verbietet.
+ Wenn eigene Klassen insofern eingeschränkt sind, als dass sie eine andere
+ Klasse als 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+Thread
+\end_layout
+
+\end_inset
+
+ erweitern müssen, bleibt nur die Option, das 
 \lang english
 Interface
-\lang german
+\lang ngerman
 
 \begin_inset space ~
 \end_inset
@@ -347,29 +489,12 @@ status open
 
 \begin_layout Plain Layout
 
-ThreadFactory
+Runnable
 \end_layout
 
 \end_inset
 
- implementiert und die Methode
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-newThread()
-\end_layout
-
-\end_inset
-
- überschrieben werden.
+ zu implementieren.
 \end_layout
 
 \begin_layout Section
@@ -387,25 +512,15 @@ name "sec:Pause"
 Einen 
 \lang english
 Thread
-\lang german
- zu pausieren ist dann sinnvoll, wenn ein 
-\lang english
-Thread
-\lang german
- warten und währenddessen keine Prozessorressourcen verschwenden soll.
+\lang ngerman
+ zu pausieren ist dann sinnvoll, wenn er warten und währenddessen keine
+ Prozessorressourcen verschwenden soll.
  Letzteres wäre beispielsweise beim aktiven Warten
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Warten durch Ausführen von Anweisungen, siehe 
-\begin_inset CommandInset href
-LatexCommand href
-target "https://de.wikipedia.org/wiki/Aktives_Warten"
-
-\end_inset
-
-.
+Warten durch Ausführen von Anweisungen.
 \end_layout
 
 \end_inset
@@ -471,10 +586,14 @@ sleep()
 Wird ein 
 \lang english
 Thread
-\lang german
- während des Pausierens unterbrochen 
+\lang ngerman
+ während des Pausierens unterbrochen (Abschnitt
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "sec:Interrupt"
 plural "false"
 caps "false"
@@ -482,7 +601,7 @@ noprefix "false"
 
 \end_inset
 
-, wird sofort eine
+), wird sofort eine
 \begin_inset Newline newline
 \end_inset
 
@@ -499,13 +618,13 @@ InterruptedException
 
 \end_inset
 
-
+ (Abschnitt
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "chap:ExceptionHandling"
 plural "false"
 caps "false"
@@ -513,34 +632,32 @@ noprefix "false"
 
 \end_inset
 
- ausgelöst.
+) ausgelöst.
 \end_layout
 
 \begin_layout Section
 Auf einen anderen 
 \lang english
 Thread
-\lang german
+\lang ngerman
  warten
 \end_layout
 
 \begin_layout Standard
-Oft muss ein 
+Besteht eine Abhängigkeit in der Ausführungsreihenfolge von zwei 
+\lang english
+Threads
+\lang ngerman
+, muss ein 
 \lang english
 Thread
-\lang german
- auf die Beendigung eines anderen 
+\lang ngerman
+ oft auf die Beendigung eines anderen 
 \lang english
 Threads
-\lang german
+\lang ngerman
  warten.
- Beispielsweise, wenn eine Abhängigkeit in der Ausführungsreihenfolge von
- zwei 
-\lang english
-Threads
-\lang german
- besteht.
- Java stellt dafür die Methode 
+ In Java kann mit der Methode 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -553,41 +670,43 @@ join()
 
 \end_inset
 
- für 
-\lang english
+ der Klasse
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
 Thread
-\lang german
-\SpecialChar nobreakdash
-Objekte bereit.
- Wird diese Methode für ein 
-\lang english
-Thread
-\lang german
-\SpecialChar nobreakdash
-Objekt aufgerufen, wird die Ausführung des aufrufenden 
+\end_layout
+
+\end_inset
+
+ die Ausführung des aufrufenden 
 \lang english
 Threads
-\lang german
+\lang ngerman
  bis zur Beendigung des referenzierten 
 \lang english
 Threads
-\lang german
- ausgesetzt.
- So könnte etwa der immer existierende Haupt
+\lang ngerman
+ ausgesetzt werden.
+ Der Haupt
 \lang english
 \SpecialChar nobreakdash
 Thread
-\lang german
- eines Programms 
+\lang ngerman
+ eines Programms könnte etwa von Nebenläufigkeit profitierende Berechnungen
+ auf mehrere 
 \lang english
-performance
-\lang german
-kritische Verarbeitungen im 
-\lang english
-Multithreading
-\lang german
-\SpecialChar nobreakdash
-Modus durchführen lassen und, nachdem 
+Threads
+\lang ngerman
+ aufteilen und, nachdem 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -603,13 +722,9 @@ join()
  für all diese 
 \lang english
 Threads
-\lang german
- beendet wurde, im 
-\lang english
-Singlethread
-\lang german
-\SpecialChar nobreakdash
-Modus weiterarbeiten.
+\lang ngerman
+ beendet wurde, das Gesamtergebnis schneller ausgeben, als eine sequentielle
+ Berechnung dauern würde.
 \end_layout
 
 \begin_layout Section
@@ -624,11 +739,7 @@ name "sec:Interrupt"
 \end_layout
 
 \begin_layout Standard
-In Java kann für einen 
-\lang english
-Thread
-\lang german
- über die Methode
+Die Methode
 \begin_inset space ~
 \end_inset
 
@@ -645,11 +756,16 @@ interrupt()
 
 \end_inset
 
- angegeben werden, dass er unterbrochen werden soll.
+ markiert ein 
+\lang english
+Thread
+\lang ngerman
+\SpecialChar nobreakdash
+Objekt für die Unterbrechung.
  
 \lang english
 Threads
-\lang german
+\lang ngerman
  können diese Angabe überprüfen und respektieren, müssen es aber nicht.
 \end_layout
 
@@ -657,7 +773,7 @@ Threads
 Zum Überprüfen, ob ein 
 \lang english
 Thread
-\lang german
+\lang ngerman
  unterbrochen werden soll, existieren zwei ähnlich benannte Methoden: 
 \begin_inset listings
 lstparams "language=Java"
@@ -755,7 +871,11 @@ interrupted()
 
 \end_inset
 
- den Unterbrechungsindikator auf 
+ den Unterbrechungsindikator eines 
+\lang english
+Threads
+\lang ngerman
+ auf 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -769,12 +889,12 @@ false
 \end_inset
 
  zurück.
- Zur Überprüfung bei einem 
+ Soll der Unterbrechungsindikator eines 
 \lang english
 Thread
-\lang german
+\lang ngerman
 \SpecialChar nobreakdash
-Objekt empfiehlt sich also die Verwendung von 
+Objekts abgefragt werden, empfiehlt sich also die Verwendung von 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -791,7 +911,7 @@ isInterrupted()
  Zur Überprüfung innerhalb desselben 
 \lang english
 Threads
-\lang german
+\lang ngerman
  kann 
 \begin_inset listings
 lstparams "language=Java"
@@ -806,111 +926,6 @@ interrupted()
 \end_inset
 
  verwendet werden.
- Auch im Hinblick auf Ausnahmebehandlung 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "chap:ExceptionHandling"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- ist es wichtig, diese Unterschiede der beiden Methoden zu kennen.
-\end_layout
-
-\begin_layout Standard
-Threads und verbundene Klassen sind elementare Bestandteile von Java und
- existieren seit Java Version 1.
- Die einzige nennenswerte Änderung an der Klasse
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-Thread
-\end_layout
-
-\end_inset
-
- selbst ist das Entfernen der Methoden
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-destroy()
-\end_layout
-
-\end_inset
-
- und 
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-stop()
-\end_layout
-
-\end_inset
-
- in Java 11
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset href
-LatexCommand href
-target "https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8204243"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
- Die Methoden waren schon lange als 
-\shape italic
-\lang english
-deprecated
-\shape default
-\lang german
- markiert und unfunktional oder gar nicht erst implementiert.
- Grund dafür war, dass die Verwendung dieser Methoden zu Deadlocks oder
- undefiniertem Verhalten führen konnte
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset href
-LatexCommand href
-target "https://docs.oracle.com/javase/9/docs/api/java/lang/Thread.html"
-
-\end_inset
-
-, siehe genannte Methoden.
-\end_layout
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard

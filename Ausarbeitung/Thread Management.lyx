@@ -178,11 +178,6 @@ customHeadersFooters
 \filename_suffix 0
 \color #faf0e6
 \end_branch
-\branch DataLocality
-\selected 1
-\filename_suffix 0
-\color #faf0e6
-\end_branch
 \branch TitlePage
 \selected 0
 \filename_suffix 0
@@ -377,26 +372,6 @@ status open
 \begin_inset CommandInset include
 LatexCommand input
 filename "ExceptionHandling.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch DataLocality
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "DataLocality.lyx"
 
 \end_inset
 
