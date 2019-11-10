@@ -176,8 +176,7 @@ Im Folgenden wird der Umgang mit
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Objekten zur nebenläufigen Programmierung in Java vorgestellt.
+-Objekten zur nebenläufigen Programmierung in Java vorgestellt.
  Alle genannten Klassen sind Teil des 
 \begin_inset listings
 lstparams "language=Java"
@@ -331,10 +330,9 @@ Erzeugen und Ausführen
 \begin_layout Standard
 Es gibt in Java zwei Möglichkeiten, 
 \lang english
-Thread\SpecialChar nobreakdash
-
+Thread
 \lang ngerman
-Objekte zu erzeugen: Entweder erstellt man eine Unterklasse der Klasse
+-Objekte zu erzeugen: Entweder erstellt man eine Unterklasse der Klasse
 \begin_inset space ~
 \end_inset
 
@@ -625,8 +623,7 @@ Erzeugung eines
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Objekts durch ein Runnable und durch Erweiterung der Klasse
+-Objekts durch ein Runnable und durch Erweiterung der Klasse
 \begin_inset space ~
 \end_inset
 
@@ -982,9 +979,8 @@ Threads
 Threads
 \lang ngerman
  ausgesetzt werden.
- Der Haupt
+ Der Haupt-
 \lang english
-\SpecialChar nobreakdash
 Thread
 \lang ngerman
  eines Programms könnte etwa von Nebenläufigkeit profitierende Berechnungen
@@ -1156,8 +1152,7 @@ interrupt()
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Objekt für die Unterbrechung.
+-Objekt für die Unterbrechung.
  
 \lang english
 Threads
@@ -1289,8 +1284,7 @@ false
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Objekts abgefragt werden, empfiehlt sich also die Verwendung von 
+-Objekts abgefragt werden, empfiehlt sich also die Verwendung von 
 \begin_inset listings
 lstparams "language=Java"
 inline true

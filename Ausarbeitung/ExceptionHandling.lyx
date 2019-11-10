@@ -178,13 +178,11 @@ Threads
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Objekten, erklärt 
+-Objekten, erklärt 
 \lang english
 Daemon
 \lang ngerman
-\SpecialChar nobreakdash
-
+-
 \lang english
 Threads
 \lang ngerman
@@ -192,8 +190,7 @@ Threads
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Gruppierung und das Erstellen von 
+-Gruppierung und das Erstellen von 
 \lang english
 Threads
 \lang ngerman
@@ -211,8 +208,7 @@ Eigenschaften von
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Objekten
+-Objekten
 \end_layout
 
 \begin_layout Standard
@@ -600,8 +596,7 @@ Setzen und Anzeigen von
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Eigenschaften.
+-Eigenschaften.
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:properties"
@@ -636,8 +631,7 @@ Java unterscheidet zwischen normalen und
 \lang english
 Daemon
 \lang ngerman
-\SpecialChar nobreakdash
-
+-
 \lang english
 Threads
 \lang ngerman
@@ -646,8 +640,7 @@ Threads
 \lang english
 Daemon
 \lang ngerman
-\SpecialChar nobreakdash
-
+-
 \lang english
 Threads
 \lang ngerman
@@ -659,12 +652,7 @@ Threads
 \lang ngerman
  beendet sind und nur noch 
 \lang english
-Daemon
-\lang ngerman
-\SpecialChar nobreakdash
-
-\lang english
-Threads
+Daemon-Threads
 \lang ngerman
  laufen, beendet die Java Virtual Machine (JVM) auch diese und damit die
  gesamte Anwendung
@@ -672,8 +660,7 @@ Threads
 status open
 
 \begin_layout Plain Layout
-Eine Java\SpecialChar nobreakdash
-Anwendung wird auch beendet, wenn 
+Eine Java-Anwendung wird auch beendet, wenn 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -729,14 +716,20 @@ Thread
 
 \end_inset
 
- kann die Daemon\SpecialChar nobreakdash
-Eigenschaft eines 
+ kann die 
+\lang english
+Daemon
+\lang ngerman
+-Eigenschaft eines 
 \lang english
 Threads
 \lang ngerman
  vor dessen Start gesetzt werden.
- Genau wie die Priorität wird der Daemon\SpecialChar nobreakdash
-Status an neue 
+ Genau wie die Priorität wird der 
+\lang english
+Daemon
+\lang ngerman
+-Status an neue 
 \lang english
 Threads
 \lang ngerman
@@ -965,13 +958,11 @@ Eine
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Gruppe erzeugen, die eine andere 
+-Gruppe erzeugen, die eine andere 
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Gruppe und einen Thread enthält.
+-Gruppe und einen Thread enthält.
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:group"
@@ -1016,8 +1007,7 @@ new
 
 \end_inset
 
-\SpecialChar nobreakdash
-Operator bei Verwendung einer Fabrikmethode in dieser Methode, was einen
+-Operator bei Verwendung einer Fabrikmethode in dieser Methode, was einen
  Austausch der zu erzeugenden Klasse vereinfacht.
  Oft definiert eine Klasse eine abstrakte Fabrikmethode, um ihren Unterklassen
  zu ermöglichen, die Methode verschieden zu implementieren.
@@ -1422,15 +1412,11 @@ Stacktrace
 \lang english
 Threads
 \lang ngerman
- erlaubt Java aber auch die Angabe einer Klasse, die das 
+ erlaubt Java die Angabe einer Klasse, die das 
 \lang english
 Interface
 \lang ngerman
-
-\begin_inset space ~
-\end_inset
-
-
+ 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -1447,8 +1433,7 @@ UncaughtExceptionHandler
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Start über die Methode
+-Start über die Methode
 \begin_inset space ~
 \end_inset
 

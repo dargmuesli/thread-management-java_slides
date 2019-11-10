@@ -271,12 +271,7 @@ interrupt()
  für die Unterbrechung markiert werden.
  
 \lang english
-Daemon
-\lang german
-\SpecialChar nobreakdash
-
-\lang english
-Threads
+Daemon-Threads
 \lang german
  verhindern nicht die Beendigung der JVM.
  Threads können gruppiert und über die 
@@ -358,8 +353,7 @@ ThreadLocal
 
 
 \lang german
-\SpecialChar nobreakdash
-Klasse umgangen werden.
+-Klasse umgangen werden.
 \end_layout
 
 \begin_layout Standard

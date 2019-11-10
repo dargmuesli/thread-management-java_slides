@@ -169,8 +169,7 @@ Oft muss Software mehrere, voneinander unabhängige Operationen nebenläufig
  auch wenn im Hintergrund Datenverarbeitung stattfindet oder das Programm
  auf die Beantwortung eines 
 \lang english
-Web\SpecialChar nobreakdash
-Requests
+Web-Requests
 \lang ngerman
  wartet.
 \end_layout
@@ -207,8 +206,7 @@ Threads
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Objekten in Java.
+-Objekten in Java.
  Dazu gehören das Erzeugen, Ausführen, Pausieren und Warten, sowie Unterbrechen
  von 
 \lang english
@@ -219,8 +217,7 @@ Threads
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Objekten, den Umgang mit in 
+-Objekten, den Umgang mit in 
 \lang english
 Threads
 \lang ngerman
@@ -231,17 +228,11 @@ Threads
 .
  Sie stellt 
 \lang english
-Daemon
-\lang ngerman
-\SpecialChar nobreakdash
-
-\lang english
-Threads
+Daemon-Threads
 \lang ngerman
  vor und weist auf Datenlokalität, sowie auf mögliche, damit verbundene
  Programmierfehler hin.
- Code\SpecialChar nobreakdash
-Beispiele ergänzen die folgenden Erklärungen.
+ Code-Beispiele ergänzen die folgenden Erklärungen.
 \end_layout
 
 \begin_layout Standard
