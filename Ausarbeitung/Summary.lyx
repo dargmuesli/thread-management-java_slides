@@ -158,41 +158,208 @@ customHeadersFooters
 
 \begin_layout Chapter
 Zusammenfassung
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:summary"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Nun sind wir in der Lage, mit dem Grundbaustein von Parallelisierungsarbeiten
- in Java – mit 
+Mit 
 \lang english
 Threads
 \lang german
- – umzugehen.
- Wir haben verstanden, welche Rolle 
+, einem Konzept auf Betriebssystemebene, können voneinander unabhängige
+ Operationen nebenläufig ausgeführt werden.
+ In Java implementieren Klassen, deren Instanzen als 
+\lang english
+Thread
+\lang german
+ ausgeführt werden sollen, überlicherweise das 
+\lang english
+Interface
+\lang german
+ 
+\lang ngerman
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+Runnable
+\end_layout
+
+\end_inset
+
+
+\lang german
+.
+ Von diesen Instanzen erzeugte 
 \lang english
 Threads
 \lang german
- für das Betriebssystem spielen und wo sie uns, als Anwendungsentwickler,
- helfen.
- Wir wissen, was 
+ können mittels 
+\lang ngerman
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+sleep()
+\end_layout
+
+\end_inset
+
+
+\lang german
+ pausieren und mittels 
+\lang ngerman
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+join()
+\end_layout
+
+\end_inset
+
+
+\lang german
+ auf die Beendigung eines anderen 
+\lang english
+Threads
+\lang german
+ warten.
+ Ein 
+\lang english
+Thread
+\lang german
+ kann über die Methode
+\begin_inset space ~
+\end_inset
+
+
+\lang ngerman
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+interrupt()
+\end_layout
+
+\end_inset
+
+
+\lang german
+ für die Unterbrechung markiert werden.
+ 
 \lang english
 Daemon
-\lang ngerman
+\lang german
 \SpecialChar nobreakdash
 
 \lang english
 Threads
 \lang german
- sind, wie wir 
+ verhindern nicht die Beendigung der JVM.
+ Threads können gruppiert und über die 
+\lang ngerman
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+ThreadFactory
+\end_layout
+
+\end_inset
+
+
+\lang german
+ erstellt werden.
+ Kontrolle über in 
 \lang english
 Threads
 \lang german
- gruppieren und wie wir mit Ausnahmen umgehen.
- Wir kennen die Lebenszyklusabschnitte von 
-\lang english
-Threads
+ auftretende Ausnahmen kann durch die Behandlung der 
+\lang ngerman
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+InterruptedException
+\end_layout
+
+\end_inset
+
+
 \lang german
- und sind bzgl.
- Datenlokalität sensibilisiert.
+ oder über einen 
+\lang ngerman
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+UncaughtExceptionHandler
+\end_layout
+
+\end_inset
+
+
+\lang german
+ erlangt werden.
+ Die Lokalität der Daten innerhalb einer 
+\lang english
+Runnable
+\lang german
+-Instanz sollte beachtet und ggf.
+ durch Nutzung der 
+\lang ngerman
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+ThreadLocal
+\end_layout
+
+\end_inset
+
+
+\lang german
+\SpecialChar nobreakdash
+Klasse umgangen werden.
 \end_layout
 
 \begin_layout Section

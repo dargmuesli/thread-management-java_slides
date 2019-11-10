@@ -159,7 +159,7 @@ customHeadersFooters
 \begin_body
 
 \begin_layout Chapter
-Einführung
+Einleitung
 \end_layout
 
 \begin_layout Standard
@@ -173,11 +173,14 @@ Web\SpecialChar nobreakdash
 Requests
 \lang ngerman
  wartet.
- Im Folgenden wird das nebenläufige Programmieren mit 
+\end_layout
+
+\begin_layout Standard
+Diese Ausarbeitung erklärt das nebenläufige Programmieren mit 
 \lang english
 Threads
 \lang ngerman
- in der Programmiersprache Java erklärt.
+ in der Programmiersprache Java.
  Java ist laut TIOBE Index
 \begin_inset Foot
 status open
@@ -195,10 +198,7 @@ target "https://www.tiobe.com/tiobe-index/"
 \end_inset
 
  die aktuell populärste Programmiersprache.
-\end_layout
-
-\begin_layout Standard
-Diese Ausarbeitung ordnet den Begriff 
+ Sie ordnet den Begriff 
 \lang english
 Threads
 \lang ngerman
@@ -215,29 +215,21 @@ Objekten in Java.
 Threads
 \lang ngerman
 .
- Die Ausarbeitung erklärt darüber hinaus den Umgang mit in 
-\lang english
-Threads
-\lang ngerman
- auftretenden Ausnahmen.
- Sie weist auch auf Datenlokalität, sowie auf mögliche, damit verbundene
- Programmierfehler hin.
- Code\SpecialChar nobreakdash
-Beispiele ergänzen die folgenden Erklärungen in jedem Abschnitt.
-\end_layout
-
-\begin_layout Standard
-Zuerst wird das Konzept von 
-\lang english
-Threads
-\lang ngerman
- geklärt.
- Nach der Erläuterung von 
+ Die Ausarbeitung erklärt darüber hinaus die Eigenschaften von 
 \lang english
 Thread
 \lang ngerman
 \SpecialChar nobreakdash
-Eigenschaften, wird die Rolle von 
+Objekten, den Umgang mit in 
+\lang english
+Threads
+\lang ngerman
+ auftretenden Ausnahmen und die Gruppierung von 
+\lang english
+Threads
+\lang ngerman
+.
+ Sie stellt 
 \lang english
 Daemon
 \lang ngerman
@@ -246,23 +238,66 @@ Daemon
 \lang english
 Threads
 \lang ngerman
- beschrieben und die Möglichkeit der Gruppierung von 
+ vor und weist auf Datenlokalität, sowie auf mögliche, damit verbundene
+ Programmierfehler hin.
+ Code\SpecialChar nobreakdash
+Beispiele ergänzen die folgenden Erklärungen.
+\end_layout
+
+\begin_layout Standard
+Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:threads-and-concurrence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ erklärt das von 
 \lang english
 Threads
 \lang ngerman
- vorgestellt.
- Der Umgang mit 
+ und Nebenläufigkeit.
+ Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:working-with-threads"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ beschreibt grundlegende 
 \lang english
 Thread
 \lang ngerman
 \SpecialChar nobreakdash
-Objekten wird im darauffolgenden Kapitel behandelt.
- In den letzten zwei Kapiteln geht es um die Ausnahmebehandlung und Datenlokalit
-ät in 
-\lang english
-Threads
-\lang ngerman
-.
+Programmierung in Java.
+ In Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:advanced-concepts"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ werden weiterführende Konzepte behandelt.
+ Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:summary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ fasst diese Ausarbeitung zusammen.
 \end_layout
 
 \begin_layout Standard

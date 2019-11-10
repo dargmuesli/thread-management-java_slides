@@ -158,10 +158,22 @@ customHeadersFooters
 
 \begin_layout Chapter
 Weiterführende Konzepte
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:advanced-concepts"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Eigenschaften
+Eigenschaften von 
+\lang english
+Thread
+\lang ngerman
+\SpecialChar nobreakdash
+Objekten
 \end_layout
 
 \begin_layout Standard
@@ -172,11 +184,10 @@ Threads
  in Java haben eine eindeutige ID, einen Namen, eine Priorität zwischen
  1 und 10 und einen Status.
  Von diesen Eigenschaften können nur Name und Priorität nachträglich geändert
- werden; ID und Status werden von Java verwaltet.
- Alle Eigenschaften werden von Java automatisch mit Werten initialisiert,
+ werden.
+ ID und Status werden von Java verwaltet.
+ Alle diese Eigenschaften werden von Java automatisch mit Werten initialisiert,
  sofern sie nicht vorher vom Entwickler bestimmt wurden.
- Während ID und Name selbsterklärend sein sollten, bedürfen Priorität und
- Status einer Erklärung.
 \end_layout
 
 \begin_layout Standard
@@ -321,7 +332,7 @@ status open
 
 \begin_layout Plain Layout
 
-TERMINATING
+TERMINATED
 \end_layout
 
 \end_inset
@@ -336,19 +347,42 @@ Daemon-Threads
 \end_layout
 
 \begin_layout Standard
-Eine weitere Eigenschaft von 
+Java unterscheidet zwischen normalen und 
+\lang english
+Daemon
+\lang ngerman
+\SpecialChar nobreakdash
+
 \lang english
 Threads
 \lang ngerman
- in Java ist, dass zwischen normalen und Daemon\SpecialChar nobreakdash
-Threads unterschieden wird.
- Daemon\SpecialChar nobreakdash
-Threads werden meist für Dienste verwendet, die abseits der Primärlogik
- eines Programms auf Ereignisse warten.
- Wenn alle normalen Threads beendet sind und nur noch Daemon\SpecialChar nobreakdash
-Threads laufen,
- beendet die Java Virtual Machine (JVM) auch diese und damit die gesamte
- Anwendung
+.
+ 
+\lang english
+Daemon
+\lang ngerman
+\SpecialChar nobreakdash
+
+\lang english
+Threads
+\lang ngerman
+ werden meist für Dienste verwendet, die abseits der Primärlogik eines Programms
+ auf Ereignisse warten.
+ Wenn alle normalen 
+\lang english
+Threads
+\lang ngerman
+ beendet sind und nur noch 
+\lang english
+Daemon
+\lang ngerman
+\SpecialChar nobreakdash
+
+\lang english
+Threads
+\lang ngerman
+ laufen, beendet die Java Virtual Machine (JVM) auch diese und damit die
+ gesamte Anwendung
 \begin_inset Foot
 status open
 
@@ -467,7 +501,7 @@ Threads
 \lang english
 Thread
 \lang ngerman
--Gruppen zusammen, sodass eine baumartige Struktur entstehen kann.
+-Gruppen in einer baumartigen Struktur zusammen.
  Operationen, die auf eine 
 \lang english
 Thread
@@ -490,15 +524,43 @@ Threads
 \end_layout
 
 \begin_layout Section
-Thread-Erzeugung mit Factories
+
+\lang english
+Thread
+\lang ngerman
+-Factories
 \end_layout
 
 \begin_layout Standard
-Soll zusätzliche Kontrolle über den Erzeugungsprozess von 
+Eine Fabrikmethode ist eine Methode, die Objekte erzeugt.
+ Mithilfe einer Fabrikmethode lässt sich im Vergleich zu einem Konstruktoraufruf
+ zusätzliche Kontrolle über den Erzeugungsprozess von Objekten erlangen.
+ Beispielsweise befindet sich der 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+new
+\end_layout
+
+\end_inset
+
+\SpecialChar nobreakdash
+Operator bei Verwendung einer Fabrikmethode in dieser Methode, was einen
+ Austausch der zu erzeugenden Klasse vereinfacht.
+ Oft definiert eine Klasse eine abstrakte Fabrikmethode, um ihren Unterklassen
+ zu ermöglichen, die Methode verschieden zu implementieren.
+\end_layout
+
+\begin_layout Standard
+Auch 
 \lang english
 Threads
 \lang ngerman
- erlangt werden, können diese nach dem 
+ können können nach dem 
 \lang english
 Factory Pattern
 \lang ngerman
@@ -615,21 +677,21 @@ name "chap:ExceptionHandling"
 \end_layout
 
 \begin_layout Standard
-Wie bereits beim Pausieren 
+Wird beim Überprüfen des Unterbrechungsindikators (Abschnitt 
 \begin_inset CommandInset ref
-LatexCommand eqref
-reference "sec:Pause"
+LatexCommand ref
+reference "sec:interrupt"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- beschrieben, kann beim Unterbrechen eines 
+) entdeckt, dass der ausführende 
 \lang english
 Threads
 \lang ngerman
- eine 
+ unterbrochen werden soll, ermöglicht das Auslösen einer 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -642,18 +704,35 @@ InterruptedException
 
 \end_inset
 
- auftreten.
- Ist ein 
-\lang english
-Thread
-\lang ngerman
- länger beschäftigt, ohne eine Methode zu implementieren, die eine solche
- Ausnahme werfen kann, kann durch ein selbst implementiertes Erzeugen dieser
- Ausnahme das Unterbrechen des 
-\lang english
-Threads
-\lang ngerman
- genauer kontrolliert werden.
+ übergeordnetem Code, diese Entdeckung individuell zu behandeln.
+ Ein Beispiel für dieses Verhalten ist die Methode
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+sleep()
+\end_layout
+
+\end_inset
+
+ (Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:pause"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -709,29 +788,11 @@ target "https://docs.oracle.com/javase/tutorial/essential/exceptions/"
 \end_inset
 
 .
- Implementiert eine Klasse das 
+ Letzteres ist für 
 \lang english
-Interface
+Threads
 \lang ngerman
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-Runnable
-\end_layout
-
-\end_inset
-
-, ist es aufgrund der vorgegebenen Methodensignatur aber nicht möglich,
- die Methode
+ aufgrund der vorgegebenen Methodensignatur der Methode
 \begin_inset space ~
 \end_inset
 
@@ -748,24 +809,7 @@ run()
 
 \end_inset
 
- um
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-throws
-\end_layout
-
-\end_inset
-
- zu erweitern.
+ nicht möglich.
 \end_layout
 
 \begin_layout Standard
@@ -799,8 +843,11 @@ NumberFormatException
 
 \end_inset
 
- auf, gibt Java standardmäßig den Stacktrace auf der Konsole aus und beendet
- das Programm.
+ auf, gibt Java standardmäßig den 
+\lang english
+Stacktrace
+\lang ngerman
+ auf der Konsole aus und beendet das Programm.
  Für die Behandlung solcher Ausnahmen in 
 \lang english
 Threads
@@ -901,30 +948,21 @@ Startet man mehrere
 \lang english
 Threads
 \lang ngerman
- mit derselben Instanz einer 
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-Runnable
-\end_layout
-
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-implementierenden Klasse, wirkt sich das Ändern eines Instanzattributs auf
- alle 
+ mit derselben Instanz eines 
+\shape italic
+Runnables
+\shape default
+, wirkt sich das Ändern eines Instanzattibuts des 
+\shape italic
+Runnables
+\shape default
+ auf alle 
 \lang english
 Threads
 \lang ngerman
  aus.
- Um dies vermeiden zu können, existiert die Klasse
+ Attribute, die mit einer unabhängigen Variablenkopie arbeiten sollen, können
+ als Typ der Klasse
 \begin_inset space ~
 \end_inset
 
@@ -941,27 +979,8 @@ ThreadLocal
 
 \end_inset
 
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset href
-LatexCommand href
-target "https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/ThreadLocal.html"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
- Instanzattribute, die als Typ dieser Klasse definiert werden, sind von
- der genannten Auswirkung nicht betroffen.
- Solche Instanzattribute arbeiten mit einer unabhängigen Variablenkopie
- und sind deshalb üblicherweise
+ definiert werden.
+ Sie sind aufgrund dieser Lokalität üblicherweise
 \begin_inset space ~
 \end_inset
 

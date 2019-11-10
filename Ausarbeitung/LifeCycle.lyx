@@ -162,6 +162,13 @@ Mit
 Threads
 \lang ngerman
  arbeiten
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:working-with-threads"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -209,7 +216,7 @@ target "https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/p
 \begin_inset space ~
 \end_inset
 
-1 in Java enthalten
+1 in Java enthalten ist
 \begin_inset Foot
 status open
 
@@ -235,12 +242,12 @@ java.util.concurrent
 \begin_inset space ~
 \end_inset
 
-Paket die nebenläufige Programmierung in Java.
+Paket nebenläufige Programmierung in Java.
 \end_layout
 
 \end_inset
 
- ist und an welchem mittlerweile kaum noch etwas verändert wird.
+ und an welchem mittlerweile kaum noch etwas verändert wird.
  Die einzige nennenswerte Änderung ist das Entfernen der Methoden
 \begin_inset space ~
 \end_inset
@@ -288,7 +295,16 @@ Thread
 
 \end_inset
 
- in Java 11
+ in Java 11.
+ Die Methoden waren schon lange als 
+\shape italic
+\lang english
+deprecated
+\shape default
+\lang ngerman
+ markiert und unfunktional oder gar nicht erst implementiert.
+ Grund dafür war, dass die Verwendung dieser Methoden zu Deadlocks oder
+ undefiniertem Verhalten führen konnte
 \begin_inset Foot
 status open
 
@@ -305,15 +321,6 @@ target "https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8204243"
 \end_inset
 
 .
- Die Methoden waren schon lange als 
-\shape italic
-\lang english
-deprecated
-\shape default
-\lang ngerman
- markiert und unfunktional oder gar nicht erst implementiert.
- Grund dafür war, dass die Verwendung dieser Methoden zu Deadlocks oder
- undefiniertem Verhalten führen konnte.
 \end_layout
 
 \begin_layout Section
@@ -326,8 +333,7 @@ Es gibt in Java zwei Möglichkeiten,
 Thread\SpecialChar nobreakdash
 
 \lang ngerman
-Objekte zu erzeugen.
- Entweder erstellt man eine Unterklasse der Klasse
+Objekte zu erzeugen: Entweder erstellt man eine Unterklasse der Klasse
 \begin_inset space ~
 \end_inset
 
@@ -459,8 +465,7 @@ Java ist auch eine Insel
 \end_inset
 
  das Erben von mehr als einer Klasse verbietet.
- Wenn eigene Klassen insofern eingeschränkt sind, als dass sie eine andere
- Klasse als 
+ Erbt eine eigene Klasse nicht von 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -473,7 +478,7 @@ Thread
 
 \end_inset
 
- erweitern müssen, bleibt nur die Option, das 
+, aber von einer anderen Klasse, muss sie das 
 \lang english
 Interface
 \lang ngerman
@@ -494,14 +499,18 @@ Runnable
 
 \end_inset
 
- zu implementieren.
+ implementieren, um als 
+\lang english
+Thread
+\lang ngerman
+ ausgeführt werden zu können.
 \end_layout
 
 \begin_layout Section
 Pausieren
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Pause"
+name "sec:pause"
 
 \end_inset
 
@@ -594,7 +603,7 @@ Thread
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Interrupt"
+reference "sec:interrupt"
 plural "false"
 caps "false"
 noprefix "false"
@@ -657,7 +666,11 @@ Thread
 Threads
 \lang ngerman
  warten.
- In Java kann mit der Methode 
+ In Java kann mit der Methode
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -702,11 +715,15 @@ Threads
 Thread
 \lang ngerman
  eines Programms könnte etwa von Nebenläufigkeit profitierende Berechnungen
- auf mehrere 
+ von mehreren 
 \lang english
 Threads
 \lang ngerman
- aufteilen und, nachdem 
+ ausführen lassen und, nachdem ein
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -724,14 +741,14 @@ join()
 Threads
 \lang ngerman
  beendet wurde, das Gesamtergebnis schneller ausgeben, als eine sequentielle
- Berechnung dauern würde.
+ Berechnung gedauert hätte.
 \end_layout
 
 \begin_layout Section
 Unterbrechen
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Interrupt"
+name "sec:interrupt"
 
 \end_inset
 

@@ -162,6 +162,13 @@ customHeadersFooters
 Threads
 \lang ngerman
  und Nebenläufigkeit
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:threads-and-concurrence"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -238,7 +245,7 @@ Programme profitieren in Form eines
 Garbage Collectors
 \lang ngerman
  (GC) von Nebenläufigkeit, indem dieser Entwicklern die Aufgabe abnimmt,
- die Speicherverwaltung zu kontrollieren.
+ die Speicherverwaltung kontrollieren zu müssen.
  Wird zur Laufzeit eines Java-Programms freier Speicher knapp, entfernt
  der GC unreferenzierte Objekte und gibt damit Speicher frei.
  Der GC ist fester Bestandteil jedes Java-Programms.
