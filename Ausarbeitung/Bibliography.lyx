@@ -241,7 +241,7 @@ thepage
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-btprint "btPrintCited"
+btprint "btPrintAll"
 bibfiles "threads_biblatex"
 
 \end_inset
