@@ -167,6 +167,45 @@ name "chap:advanced-concepts"
 
 \end_layout
 
+\begin_layout Standard
+Dieses Kapitel stellt Konzepte vor, die über den grundlegenden Umgang mit
+ 
+\lang english
+Threads
+\lang ngerman
+ hinausgehen.
+ Es nennt die Eigenschaften von 
+\lang english
+Thread
+\lang ngerman
+\SpecialChar nobreakdash
+Objekten, erklärt 
+\lang english
+Daemon
+\lang ngerman
+\SpecialChar nobreakdash
+
+\lang english
+Threads
+\lang ngerman
+, 
+\lang english
+Thread
+\lang ngerman
+\SpecialChar nobreakdash
+Gruppierung und das Erstellen von 
+\lang english
+Threads
+\lang ngerman
+ über Fabrikmethoden.
+ Darüber hinaus wird der Umgang mit in 
+\lang english
+Threads
+\lang ngerman
+ auftretenden Ausnahmen vermittelt und der Leser für den Aspekt der Datenlokalit
+ät sensibilisiert.
+\end_layout
+
 \begin_layout Section
 Eigenschaften von 
 \lang english
