@@ -12,7 +12,7 @@
 % Scale source code font
 \usepackage{etoolbox}
 \AtBeginEnvironment{minted}{%\singlespacing%
-    \fontsize{11}{11}\selectfont}
+    \fontsize{10}{10}\selectfont}
 
 \usepackage{minted}
 
