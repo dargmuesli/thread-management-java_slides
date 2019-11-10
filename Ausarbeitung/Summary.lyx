@@ -172,13 +172,13 @@ Mit
 \lang english
 Threads
 \lang german
-, einem Konzept auf Betriebssystemebene, können voneinander unabhängige
- Operationen nebenläufig ausgeführt werden.
+, einem Konzept auf Betriebssystemebene, können Operationen nebenläufig
+ ausgeführt werden.
  In Java implementieren Klassen, deren Instanzen als 
 \lang english
 Thread
 \lang german
- ausgeführt werden sollen, überlicherweise das 
+ ausgeführt werden sollen, üblicherweise das 
 \lang english
 Interface
 \lang german
@@ -268,7 +268,7 @@ interrupt()
 
 
 \lang german
- für die Unterbrechung markiert werden.
+ für eine Unterbrechung markiert werden.
  
 \lang english
 Daemon-Threads

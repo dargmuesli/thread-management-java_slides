@@ -163,11 +163,10 @@ Einleitung
 \end_layout
 
 \begin_layout Standard
-Oft muss Software mehrere, voneinander unabhängige Operationen nebenläufig
- ausführen.
+Oft muss Software mehrere Operationen nebenläufig ausführen.
  Beispielsweise sollen Benutzeroberflächen jederzeit auf Eingaben reagieren,
- auch wenn im Hintergrund Datenverarbeitung stattfindet oder das Programm
- auf die Beantwortung eines 
+ auch wenn im Hintergrund Daten verarbeitet werden oder das Programm auf
+ die Beantwortung eines 
 \lang english
 Web-Requests
 \lang ngerman
@@ -201,8 +200,7 @@ target "https://www.tiobe.com/tiobe-index/"
 \lang english
 Threads
 \lang ngerman
- in den Kontext von Betriebssystemen ein und erläutert den üblichen Umgang
- mit 
+ in den Kontext von Betriebssystemen ein und erläutert den Umgang mit 
 \lang english
 Thread
 \lang ngerman
@@ -230,9 +228,20 @@ Threads
 \lang english
 Daemon-Threads
 \lang ngerman
- vor und weist auf Datenlokalität, sowie auf mögliche, damit verbundene
- Programmierfehler hin.
- Code-Beispiele ergänzen die folgenden Erklärungen.
+ vor und weist auf Datenlokalität sowie auf mögliche, damit verbundene Programmi
+erfehler hin.
+ Code-Beispiele ergänzen die Erklärungen
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Hinweis: Layoutbedingt können Code-Beispiele erst auf einer ihrem zugehörigen
+ Kapitel folgenden Seite zu finden sein.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

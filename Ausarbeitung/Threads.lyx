@@ -181,8 +181,8 @@ Threads
 \shape italic
 Prozesse
 \shape default
-, also Programminstanzen mit eigenem Speicherbereich.
- Prozesse enthalten immer mindestens einen 
+, die Programminstanzen mit eigenem Speicherbereich sind.
+ Jeder Prozess enthält immer mindestens einen 
 \lang english
 Thread
 \lang ngerman
@@ -243,7 +243,7 @@ Java-Programme profitieren in Form eines
 \lang english
 Garbage Collectors
 \lang ngerman
- (GC) von Nebenläufigkeit, indem dieser Entwicklern die Aufgabe abnimmt,
+ (GC) von Nebenläufigkeit, indem dieser den Entwicklern die Aufgabe abnimmt,
  die Speicherverwaltung kontrollieren zu müssen.
  Wird zur Laufzeit eines Java-Programms freier Speicher knapp, entfernt
  der GC unreferenzierte Objekte und gibt damit Speicher frei.

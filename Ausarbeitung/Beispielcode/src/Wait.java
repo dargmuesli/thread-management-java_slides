@@ -1,12 +1,12 @@
 public class Wait {
 
 public static void main(String[] args) throws InterruptedException {
-    Thread calc = new Thread(() -> {
+    Thread t = new Thread(() -> {
         // irgendeine Berechnung
     });
-    calc.start();
-    calc.join(); // Kann eine InterruptedException auslösen. Siehe Methodensignatur.
-    // Ab dieser Zeile ist die Berechnung mit Sicherheit abgeschlossen.
+    t.start();
+    t.join(1000); // Wartet maximal eine Sekunde auf Beendigung des Threads [t]. Kann eine InterruptedException auslösen. Siehe Methodensignatur.
+    // Ab dieser Zeile ist der Thread mit Sicherheit beendet.
 }
 
 }

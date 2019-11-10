@@ -503,6 +503,45 @@ Runnable
 Thread
 \lang ngerman
  ausgeführt werden zu können.
+ Die Klasse
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+Thread
+\end_layout
+
+\end_inset
+
+ implementiert selbst das 
+\lang english
+Interface
+\lang ngerman
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+Runnable
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -573,7 +612,8 @@ Thread runnableThread = new Thread(new RunnableThread());
 
 \begin_layout Plain Layout
 
-static class ExtendsThread extends Thread {
+static class ExtendedThread extends Thread { // Thread implementiert selbst
+ Runnable.
 \end_layout
 
 \begin_layout Plain Layout
@@ -607,7 +647,11 @@ static class ExtendsThread extends Thread {
 
 \begin_layout Plain Layout
 
-Thread extendsThread = new ExtendsThread();
+Thread extendedThread = new ExtendedThread();
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -826,6 +870,11 @@ status open
 
 \begin_layout Plain Layout
 
+// import java.util.concurrent.TimeUnit;
+\end_layout
+
+\begin_layout Plain Layout
+
 try {
 \end_layout
 
@@ -836,8 +885,7 @@ try {
 
 \begin_layout Plain Layout
 
-    java.util.concurrent.TimeUnit.SECONDS.sleep(1); // java.util.concurrent.TimeUnit
- kann auch importiert werden.
+    TimeUnit.SECONDS.sleep(1);
 \end_layout
 
 \begin_layout Plain Layout
@@ -1043,7 +1091,7 @@ public static void main(String[] args) throws InterruptedException {
 
 \begin_layout Plain Layout
 
-    Thread calc = new Thread(() -> {
+    Thread t = new Thread(() -> {
 \end_layout
 
 \begin_layout Plain Layout
@@ -1058,18 +1106,20 @@ public static void main(String[] args) throws InterruptedException {
 
 \begin_layout Plain Layout
 
-    calc.start();
+    t.start();
 \end_layout
 
 \begin_layout Plain Layout
 
-    calc.join(); // Kann eine InterruptedException auslösen.
+    t.join(1000); // Wartet maximal eine Sekunde auf Beendigung des Threads
+ [t].
+ Kann eine InterruptedException auslösen.
  Siehe Methodensignatur.
 \end_layout
 
 \begin_layout Plain Layout
 
-    // Ab dieser Zeile ist die Berechnung mit Sicherheit abgeschlossen.
+    // Ab dieser Zeile ist der Thread mit Sicherheit beendet.
 \end_layout
 
 \begin_layout Plain Layout
@@ -1192,36 +1242,6 @@ isInterrupted()
 \end_inset
 
 .
- Auch geben beide Methoden einen 
-\begin_inset listings
-lstparams "language=Java"
-inline true
-status open
-
-\begin_layout Plain Layout
-
-boolean
-\end_layout
-
-\end_inset
-
- zurück und können wegen diesen Ähnlichkeiten Verwirrung stiften
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset href
-LatexCommand href
-target "https://stackoverflow.com/q/16916238/4682621"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
  Sie unterscheiden sich in zwei Eigenschaften: zum einen ist 
 \begin_inset listings
 lstparams "language=Java"
@@ -1284,7 +1304,7 @@ false
 \lang english
 Thread
 \lang ngerman
--Objekts abgefragt werden, empfiehlt sich also die Verwendung von 
+-Objekts abgefragt werden, kann nur 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -1297,7 +1317,7 @@ isInterrupted()
 
 \end_inset
 
-.
+ verwendet werden.
  Zur Überprüfung innerhalb desselben 
 \lang english
 Threads
@@ -1316,6 +1336,21 @@ interrupted()
 \end_inset
 
  verwendet werden.
+ Letzteres dient meist dem Erfüllen der Konvention, den Unterbrechungsindikator
+ vor dem Auslösen einer 
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+InterruptedException
+\end_layout
+
+\end_inset
+
+ zurückzusetzen.
 \end_layout
 
 \begin_layout Standard
@@ -1346,7 +1381,7 @@ status open
 
 \begin_layout Plain Layout
 
-Thread calc = new Thread(() -> {
+Thread t = new Thread(() -> {
 \end_layout
 
 \begin_layout Plain Layout
@@ -1361,7 +1396,8 @@ Thread calc = new Thread(() -> {
 
 \begin_layout Plain Layout
 
-        if (Thread.interrupted()) {
+        if (Thread.interrupted()) { // Kürzer als Thread.currentThread().isInterrup
+ted()
 \end_layout
 
 \begin_layout Plain Layout
@@ -1386,13 +1422,13 @@ Thread calc = new Thread(() -> {
 
 \begin_layout Plain Layout
 
-calc.interrupt();
+t.interrupt();
 \end_layout
 
 \begin_layout Plain Layout
 
-System.out.println("Unterbrechungsindikator ist" + (calc.isInterrupted() ?
- "" : " nicht") + " gesetzt.");
+System.out.println("Unterbrechungsindikator ist" + (t.isInterrupted() ? ""
+ : " nicht") + " gesetzt.");
 \end_layout
 
 \begin_layout Plain Layout

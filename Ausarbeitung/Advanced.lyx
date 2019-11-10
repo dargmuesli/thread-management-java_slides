@@ -168,17 +168,20 @@ name "chap:advanced-concepts"
 \end_layout
 
 \begin_layout Standard
-Dieses Kapitel stellt Konzepte vor, die über den grundlegenden Umgang mit
- 
-\lang english
-Threads
-\lang ngerman
- hinausgehen.
- Es nennt die Eigenschaften von 
+Dieses Kapitel nennt die Eigenschaften von 
 \lang english
 Thread
 \lang ngerman
--Objekten, erklärt 
+-Objekten, vermittelt den Umgang mit in 
+\lang english
+Threads
+\lang ngerman
+ auftretenden Ausnahmen und stellt Konzepte vor, die über den grundlegenden
+ Umgang mit 
+\lang english
+Threads
+\lang ngerman
+ hinausgehen: 
 \lang english
 Daemon
 \lang ngerman
@@ -195,12 +198,7 @@ Thread
 Threads
 \lang ngerman
  über Fabrikmethoden.
- Darüber hinaus wird der Umgang mit in 
-\lang english
-Threads
-\lang ngerman
- auftretenden Ausnahmen vermittelt und der Leser für den Aspekt der Datenlokalit
-ät sensibilisiert.
+ Darüber hinaus wird der Leser für den Aspekt der Datenlokalität sensibilisiert.
 \end_layout
 
 \begin_layout Section
@@ -769,7 +767,7 @@ public static void main(String[] args) {
 
 \begin_layout Plain Layout
 
-    Thread daemon = new Thread(() -> {
+    Thread dt = new Thread(() -> {
 \end_layout
 
 \begin_layout Plain Layout
@@ -784,12 +782,12 @@ public static void main(String[] args) {
 
 \begin_layout Plain Layout
 
-    daemon.setDaemon(true);
+    dt.setDaemon(true);
 \end_layout
 
 \begin_layout Plain Layout
 
-    daemon.start();
+    dt.start();
 \end_layout
 
 \begin_layout Plain Layout
@@ -994,7 +992,7 @@ Thread
 Eine Fabrikmethode ist eine Methode, die Objekte erzeugt.
  Mithilfe einer Fabrikmethode lässt sich im Vergleich zu einem Konstruktoraufruf
  zusätzliche Kontrolle über den Erzeugungsprozess von Objekten erlangen.
- Beispielsweise befindet sich der 
+ Die Erzeugung von Objekten mit dem 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -1007,8 +1005,8 @@ new
 
 \end_inset
 
--Operator bei Verwendung einer Fabrikmethode in dieser Methode, was einen
- Austausch der zu erzeugenden Klasse vereinfacht.
+-Operator befindet sich gekapselt in dieser Methode, was einen Austausch
+ der zu erzeugenden Klasse vereinfacht.
  Oft definiert eine Klasse eine abstrakte Fabrikmethode, um ihren Unterklassen
  zu ermöglichen, die Methode verschieden zu implementieren.
 \end_layout
@@ -1111,8 +1109,12 @@ status open
 
 \begin_layout Plain Layout
 
-java.util.concurrent.ThreadFactory threadFactory = r -> null; // java.util.concurrent.
-ThreadFactory kann auch importiert werden.
+// import java.util.concurrent.ThreadFactory;
+\end_layout
+
+\begin_layout Plain Layout
+
+ThreadFactory threadFactory = r -> null;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1137,10 +1139,6 @@ if (t == null) {
 \begin_layout Plain Layout
 
 }
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -1407,7 +1405,11 @@ NumberFormatException
 \lang english
 Stacktrace
 \lang ngerman
- auf der Konsole aus und beendet das Programm.
+ auf der Konsole aus und beendet den 
+\lang english
+Thread
+\lang ngerman
+.
  Für die Behandlung solcher Ausnahmen in 
 \lang english
 Threads
@@ -1450,7 +1452,7 @@ setUncaughtExceptionHandler()
 
 \end_inset
 
- angegeben werden kann.
+ zugeordnet werden kann.
  Soll eine Ausnahmebehandlungsroutine hingegen für 
 \lang english
 Thread

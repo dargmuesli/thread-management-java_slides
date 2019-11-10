@@ -1,11 +1,14 @@
+import java.util.concurrent.TimeUnit;
+
 public class Pause {
     static class LocalDataRunnable implements Runnable {
         @Override
         public void run() {
 
+// import java.util.concurrent.TimeUnit;
 try {
     Thread.sleep(1000);
-    java.util.concurrent.TimeUnit.SECONDS.sleep(1); // java.util.concurrent.TimeUnit kann auch importiert werden.
+    TimeUnit.SECONDS.sleep(1);
 } catch (InterruptedException e) {
     throw new NumberFormatException();
 }
