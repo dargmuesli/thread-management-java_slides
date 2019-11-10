@@ -198,7 +198,7 @@ target "https://www.tiobe.com/tiobe-index/"
 \end_inset
 
  die aktuell populärste Programmiersprache.
- Sie ordnet den Begriff 
+ Die Ausarbeitung ordnet den Begriff 
 \lang english
 Threads
 \lang ngerman
@@ -255,7 +255,7 @@ noprefix "false"
 
 \end_inset
 
- erklärt das von 
+ erklärt 
 \lang english
 Threads
 \lang ngerman
@@ -274,8 +274,7 @@ noprefix "false"
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Programmierung in Java.
+-Programmierung in Java.
  In Kapitel 
 \begin_inset CommandInset ref
 LatexCommand ref

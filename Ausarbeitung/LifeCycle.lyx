@@ -248,7 +248,8 @@ Paket nebenläufige Programmierung in Java.
 \end_inset
 
  und an welchem mittlerweile kaum noch etwas verändert wird.
- Die einzige nennenswerte Änderung ist das Entfernen der Methoden
+ Die einzige nennenswerte Änderung in den letzten Java-Versionen ist das
+ Entfernen der Methoden
 \begin_inset space ~
 \end_inset
 
@@ -295,7 +296,7 @@ Thread
 
 \end_inset
 
- in Java 11.
+ zu Java 11.
  Die Methoden waren schon lange als 
 \shape italic
 \lang english
@@ -1307,7 +1308,7 @@ isInterrupted()
 \lang english
 Threads
 \lang ngerman
- kann 
+ kann auch 
 \begin_inset listings
 lstparams "language=Java"
 inline true

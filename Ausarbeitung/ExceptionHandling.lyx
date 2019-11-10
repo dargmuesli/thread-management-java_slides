@@ -181,13 +181,13 @@ Objekten
 \lang english
 Threads
 \lang ngerman
- in Java haben eine eindeutige ID, einen Namen, eine Priorität zwischen
+ haben in Java eine eindeutige ID, einen Namen, eine Priorität zwischen
  1 und 10 und einen Status.
  Von diesen Eigenschaften können nur Name und Priorität nachträglich geändert
  werden.
  ID und Status werden von Java verwaltet.
- Alle diese Eigenschaften werden von Java automatisch mit Werten initialisiert,
- sofern sie nicht vorher vom Entwickler bestimmt wurden.
+ Alle diese Eigenschaften werden automatisch mit Werten initialisiert, sofern
+ sie nicht vorher vom Entwickler bestimmt wurden.
 \end_layout
 
 \begin_layout Standard
@@ -989,7 +989,7 @@ Auch
 \lang english
 Threads
 \lang ngerman
- können können nach dem 
+ können nach dem 
 \lang english
 Factory Pattern
 \lang ngerman
@@ -1216,9 +1216,13 @@ noprefix "false"
 
 ) entdeckt, dass der ausführende 
 \lang english
-Threads
+Thread
 \lang ngerman
- unterbrochen werden soll, ermöglicht das Auslösen einer 
+ unterbrochen werden soll, ermöglicht das Auslösen einer
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -1297,7 +1301,7 @@ throws
 
 \end_inset
 
- weitergereicht werden
+ an die übergeordnete Methode weitergereicht werden
 \begin_inset Foot
 status open
 
@@ -1319,7 +1323,7 @@ target "https://docs.oracle.com/javase/tutorial/essential/exceptions/"
 \lang english
 Threads
 \lang ngerman
- aufgrund der vorgegebenen Methodensignatur der Methode
+ aufgrund der vorgegebenen Methodensignatur von
 \begin_inset space ~
 \end_inset
 
@@ -1427,8 +1431,7 @@ setUncaughtExceptionHandler()
 \lang english
 Thread
 \lang ngerman
-\SpecialChar nobreakdash
-Gruppen angegeben werden, muss die Klasse
+-Gruppen angegeben werden, muss die Klasse
 \begin_inset space ~
 \end_inset
 
@@ -1675,15 +1678,8 @@ Startet man mehrere
 \lang english
 Threads
 \lang ngerman
- mit derselben Instanz eines 
-\shape italic
-Runnables
-\shape default
-, wirkt sich das Ändern eines Instanzattibuts des 
-\shape italic
-Runnables
-\shape default
- auf alle 
+ mit Instanzen derselben Runnable-Klasse, wirkt sich das Ändern eines Instanzatt
+ibuts des Runnables auf alle 
 \lang english
 Threads
 \lang ngerman
