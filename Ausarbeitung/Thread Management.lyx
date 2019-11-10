@@ -143,7 +143,7 @@ customHeadersFooters
 \justification true
 \use_refstyle 0
 \use_minted 1
-\branch LifeCycle
+\branch Basics
 \selected 1
 \filename_suffix 0
 \color #faf0e6
@@ -173,7 +173,7 @@ customHeadersFooters
 \filename_suffix 0
 \color #faf0e6
 \end_branch
-\branch ExceptionHandling
+\branch Advanced
 \selected 1
 \filename_suffix 0
 \color #faf0e6
@@ -344,14 +344,14 @@ filename "Threads.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch LifeCycle
+\begin_inset Branch Basics
 inverted 0
 status open
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "LifeCycle.lyx"
+filename "Basics.lyx"
 
 \end_inset
 
@@ -364,14 +364,14 @@ filename "LifeCycle.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch ExceptionHandling
+\begin_inset Branch Advanced
 inverted 0
 status open
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "ExceptionHandling.lyx"
+filename "Advanced.lyx"
 
 \end_inset
 
