@@ -10,7 +10,7 @@ Thread t = threadFactory.newThread(() -> {});
 if (t == null) {
     System.out.println("Thread ist null.");
 }
-// Gibt "Thread ist null." aus.
+// Gibt "Thread ist null." aus. Ein Minimalbeispiel.
 
     }
 }

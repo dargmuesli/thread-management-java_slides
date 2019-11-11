@@ -1005,8 +1005,8 @@ new
 
 \end_inset
 
--Operator befindet sich gekapselt in dieser Methode, was einen Austausch
- der zu erzeugenden Klasse vereinfacht.
+-Operator befindet sich beispielsweise gekapselt in dieser Methode, was
+ einen Austausch der zu erzeugenden Klasse vereinfacht.
  Oft definiert eine Klasse eine abstrakte Fabrikmethode, um ihren Unterklassen
  zu ermöglichen, die Methode verschieden zu implementieren.
 \end_layout
@@ -1144,6 +1144,7 @@ if (t == null) {
 \begin_layout Plain Layout
 
 // Gibt "Thread ist null." aus.
+ Ein Minimalbeispiel.
 \end_layout
 
 \end_inset
@@ -1922,7 +1923,9 @@ n", dateShared);
 
 \begin_layout Plain Layout
 
-         */ // [dateShared] bleibt beim ursprünglichen Wert.
+         */ // [dateShared] bleibt beim ursprünglichen Wert, weil das Feld
+ für [LocalDataRunnable] nur einmal (für alle Threads des Runnables) gesetzt
+ wird.
 \end_layout
 
 \begin_layout Plain Layout

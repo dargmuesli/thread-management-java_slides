@@ -9,7 +9,7 @@ static class RunnableThread implements Runnable {
 
 Thread runnableThread = new Thread(new RunnableThread());
 
-static class ExtendedThread extends Thread { // Thread implementiert selbst Runnable.
+static class ExtendedThread extends Thread {
     @Override
     public void run() {
         // Thread-Logik

@@ -612,8 +612,7 @@ Thread runnableThread = new Thread(new RunnableThread());
 
 \begin_layout Plain Layout
 
-static class ExtendedThread extends Thread { // Thread implementiert selbst
- Runnable.
+static class ExtendedThread extends Thread {
 \end_layout
 
 \begin_layout Plain Layout
@@ -912,7 +911,7 @@ try {
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Eine Sekunde pausieren mittels 
+Eine Sekunde lang pausieren mittels 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -1299,12 +1298,16 @@ false
 
 \end_inset
 
- zurück.
+.
  Soll der Unterbrechungsindikator eines 
 \lang english
 Thread
 \lang ngerman
--Objekts abgefragt werden, kann nur 
+-
+\bar under
+Objekts
+\bar default
+ abgefragt werden, kann nur 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -1350,7 +1353,17 @@ InterruptedException
 
 \end_inset
 
- zurückzusetzen.
+ (Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:ExceptionHandling"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) zurückzusetzen.
 \end_layout
 
 \begin_layout Standard
@@ -1463,7 +1476,8 @@ interrupt()
 
 \end_inset
 
-, Indikatorprüfung mittels 
+.
+ Indikatorprüfung mittels 
 \begin_inset listings
 lstparams "language=Java"
 inline true

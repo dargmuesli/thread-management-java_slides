@@ -172,7 +172,7 @@ Mit
 \lang english
 Threads
 \lang german
-, einem Konzept auf Betriebssystemebene, können Operationen nebenläufig
+, einem Konzept der Betriebssystemebene, können Operationen nebenläufig
  ausgeführt werden.
  In Java implementieren Klassen, deren Instanzen als 
 \lang english
