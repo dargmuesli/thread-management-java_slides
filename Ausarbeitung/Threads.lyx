@@ -181,7 +181,7 @@ Threads
 \shape italic
 Prozesse
 \shape default
-, die Programminstanzen mit eigenem Speicherbereich sind.
+, also Programminstanzen mit eigenem Speicherbereich.
  Jeder Prozess enthält immer mindestens einen 
 \lang english
 Thread
