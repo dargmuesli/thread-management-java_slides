@@ -1,5 +1,5 @@
 public class ExceptionHandling {
-    static class EndlessThread extends Thread {
+    static class ExceptionThread implements Runnable {
         @Override
         public void run() {
             try {
@@ -18,9 +18,10 @@ public class ExceptionHandling {
     }
 
     public static void main(String[] args) {
-        Thread endlessThread = new EndlessThread();
-        endlessThread.setUncaughtExceptionHandler(new UncaughtExceptionHandler());
-        endlessThread.start();
+        Thread exceptionT = new Thread(new ExceptionThread());
+        exceptionT.setUncaughtExceptionHandler(
+                new UncaughtExceptionHandler());
+        exceptionT.start();
         // Gibt "Look! A java.lang.NumberFormatException!" aus.
     }
 }
