@@ -1528,7 +1528,7 @@ public class ExceptionHandling {
 
 \begin_layout Plain Layout
 
-    static class EndlessThread extends Thread {
+    static class ExceptionThread implements Runnable {
 \end_layout
 
 \begin_layout Plain Layout
@@ -1624,18 +1624,17 @@ n", e);
 
 \begin_layout Plain Layout
 
-        Thread endlessThread = new EndlessThread();
+        Thread exceptionT = new Thread(new ExceptionThread());
 \end_layout
 
 \begin_layout Plain Layout
 
-        endlessThread.setUncaughtExceptionHandler(new UncaughtExceptionHandler())
-;
+        exceptionT.setUncaughtExceptionHandler(new UncaughtExceptionHandler());
 \end_layout
 
 \begin_layout Plain Layout
 
-        endlessThread.start();
+        exceptionT.start();
 \end_layout
 
 \begin_layout Plain Layout

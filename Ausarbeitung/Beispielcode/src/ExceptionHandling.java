@@ -19,8 +19,7 @@ public class ExceptionHandling {
 
     public static void main(String[] args) {
         Thread exceptionT = new Thread(new ExceptionThread());
-        exceptionT.setUncaughtExceptionHandler(
-                new UncaughtExceptionHandler());
+        exceptionT.setUncaughtExceptionHandler(new UncaughtExceptionHandler());
         exceptionT.start();
         // Gibt "Look! A java.lang.NumberFormatException!" aus.
     }
