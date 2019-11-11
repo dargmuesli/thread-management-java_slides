@@ -245,7 +245,4 @@ TSWLatexianTemp*
 
 # Lyx
 *.lyx~
-
-# PDFs
-*.pdf
-
+*.lyx#

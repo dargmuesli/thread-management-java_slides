@@ -170,10 +170,6 @@ Thread Management
  in Java
 \end_layout
 
-\begin_layout Subtitle
-in den JDKs 9 bis 13
-\end_layout
-
 \begin_layout Author
 Jonas Thelemann
 \begin_inset Newline newline
@@ -187,9 +183,7 @@ Informatik
 \end_layout
 
 \begin_layout Date
-2019\SpecialChar nobreakdash
-10\SpecialChar nobreakdash
-04
+2019-11-11
 \end_layout
 
 \begin_layout Publishers

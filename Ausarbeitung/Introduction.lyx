@@ -127,7 +127,7 @@ customHeadersFooters
 \suppress_date false
 \justification true
 \use_refstyle 0
-\use_minted 0
+\use_minted 1
 \branch Standalone
 \selected 1
 \filename_suffix 0
@@ -158,189 +158,27 @@ customHeadersFooters
 
 \begin_body
 
-\begin_layout Left Header
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-chaptername
-\end_layout
-
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-thechapter
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-rightmark
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Right Header
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-leftmark
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Left Footer
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-thepage
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Center Footer
-
-\end_layout
-
-\begin_layout Right Footer
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-thepage
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
-Einführung
+Einleitung
 \end_layout
 
 \begin_layout Standard
-Softwareentwickler nichttrivialer Anwendungen gelangen früher oder später
- an den Punkt, an dem eine Anwendung mehrere Operationen gleichzeitig ausführen
- können muss.
- Sei es zur Anzeige einer Benutzeroberfläche, zur parallelen Datenverarbeitung
- oder zum nichtblockierenden Warten.
- Denn der Einsatz von Computern verfolgt in erster Linie das Ziel, Produktivität
- zu erhöhen.
- Zum einen soll Software die Ressourcen eines Computers optimal nutzen,
- zum anderen darf das Nutzungserlebnis nicht beeinträchtigt werden.
+Oft muss Software mehrere Operationen nebenläufig ausführen.
+ Beispielsweise sollen Benutzeroberflächen jederzeit auf Eingaben reagieren,
+ auch wenn im Hintergrund Daten verarbeitet werden oder das Programm auf
+ die Beantwortung eines 
+\lang english
+Web-Requests
+\lang ngerman
+ wartet.
 \end_layout
 
 \begin_layout Standard
-Die aus Sicht des Entwicklers erste Option zum Erreichen dieser Ziele ist
- das Erzeugen weiterer 
+Diese Ausarbeitung erklärt das nebenläufige Programmieren mit 
 \lang english
 Threads
 \lang ngerman
-.
-\end_layout
-
-\begin_layout Standard
-Insbesondere bei Programmiersprachen wie Java lohnt sich die Kenntnis paralleler
- Programmierkonzepte.
- Denn auch schon einfache Java\SpecialChar nobreakdash
-Programme profitieren zur Laufzeit in Form
- eines im Hintergrund arbeitenden 
-\lang english
-Garbage Collectors
-\lang ngerman
- (GC) von paralleler Programmierung.
- Der GC entfernt automatisch unreferenzierte Objekte und gibt damit Speicher
- frei.
- Dadurch müssen sich Java\SpecialChar nobreakdash
-Entwickler nicht, wie beispielsweise in C, selbst
- um die Speicherverwaltung kümmern.
-\end_layout
-
-\begin_layout Standard
-Im Folgenden wird das Programmieren mit 
-\lang english
-Threads
-\lang ngerman
- in Java erklärt.
+ in der Programmiersprache Java.
  Java ist laut TIOBE Index
 \begin_inset Foot
 status open
@@ -352,148 +190,113 @@ target "https://www.tiobe.com/tiobe-index/"
 
 \end_inset
 
-
+, November 2019.
 \end_layout
 
 \end_inset
 
  die aktuell populärste Programmiersprache.
- Die folgenden Erklärungen werden zusammenfassend von einem Code\SpecialChar nobreakdash
-Beispiel
- ergänzt 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "sec:Code"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Da es sich bei 
+ Die Ausarbeitung ordnet den Begriff 
 \lang english
 Threads
 \lang ngerman
- um ein sehr grundlegendes Parallelisierungskonzept handelt, unterscheidet
- sich dieses Dokument inhaltlich nicht sehr von den Literaturquellen 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "9781787124417,9780321349606"
-literal "false"
-
-\end_inset
-
-.
- Die hier formulierten Ausführungen beziehen sich wie die primäre Literaturquell
-e 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "9781787124417"
-literal "false"
-
-\end_inset
-
- auf das 
+ in den Kontext von Betriebssystemen ein und erläutert den Umgang mit 
 \lang english
-Oracle
+Thread
 \lang ngerman
- JDK
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Java Development Kit
-\end_layout
-
-\end_inset
-
- 9, Referenzen zur Dokumentation von 
-\lang english
-Oracle
-\lang ngerman
- Java auf die neueste Version 13.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "0.5pt"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Zuerst wird das Konzept von 
-\lang english
-Threads
-\lang ngerman
- im Kontext von Betriebssystem und Anwendungsentwicklung geklärt.
- Nach einer Erläuterung der Eigenschaften von 
-\lang english
-Threads
-\lang ngerman
-, wird die Rolle von 
-\lang english
-Daemon
-\lang ngerman
-\SpecialChar nobreakdash
-
-\lang english
-Threads
-\lang ngerman
- beschrieben und die Möglichkeit der Gruppierung von 
-\lang english
-Threads
-\lang ngerman
- vorgestellt.
-\end_layout
-
-\begin_layout Standard
-Der Umgang mit den einzelnen Lebenszyklusabschnitten von 
-\lang english
-Threads
-\lang ngerman
- wird im darauffolgenden Kapitel vermittelt.
+-Objekten in Java.
  Dazu gehören das Erzeugen, Ausführen, Pausieren und Warten, sowie Unterbrechen
  von 
 \lang english
 Threads
 \lang ngerman
 .
-\end_layout
-
-\begin_layout Standard
-Danach werden übliche Möglichkeiten im Umgang mit Ausnahmen bei der Ausführung
- von 
+ Die Ausarbeitung erklärt darüber hinaus die Eigenschaften von 
+\lang english
+Thread
+\lang ngerman
+-Objekten, den Umgang mit in 
 \lang english
 Threads
 \lang ngerman
- aufgezeigt.
-\end_layout
-
-\begin_layout Standard
-Nun wird auf die Lokalität von Daten in 
+ auftretenden Ausnahmen und die Gruppierung von 
 \lang english
 Threads
 \lang ngerman
- eingegangen und auf mögliche, damit verbundene Probleme hingewiesen.
+.
+ Sie stellt 
+\lang english
+Daemon-Threads
+\lang ngerman
+ vor und weist auf Datenlokalität sowie auf mögliche, damit verbundene Programmi
+erfehler hin.
+ Code-Beispiele ergänzen die Erklärungen
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Hinweis: Layoutbedingt können Code-Beispiele erst auf einer ihrem zugehörigen
+ Kapitel folgenden Seite zu finden sein.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Nachdem im vorletzten Kapitel Änderungen im Umgang mit 
+Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:threads-and-concurrence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ erklärt 
 \lang english
 Threads
 \lang ngerman
- seit dem JDK 9 angesprochen werden, wird das Beschriebene noch einmal zusammeng
-efasst.
+ und Nebenläufigkeit.
+ Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:working-with-threads"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ beschreibt grundlegende 
+\lang english
+Thread
+\lang ngerman
+-Programmierung in Java.
+ In Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:advanced-concepts"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ werden weiterführende Konzepte behandelt.
+ Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:summary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ fasst die Ausarbeitung zusammen.
 \end_layout
 
 \begin_layout Standard

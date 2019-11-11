@@ -3,7 +3,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 public class ThreadManagement {
-  private static ThreadGroup lowPriorityThreadGroup = new ThreadGroup("Low Priority Threads");
+  private static ThreadGroup lowPrioTGroup = new ThreadGroup("Low Priority Threads");
 
   // Ein Runnable, das die Werte seiner Felder ausgibt.
   static class LocalDataRunnable implements Runnable {
@@ -32,13 +32,13 @@ public class ThreadManagement {
   }
 
   // Eine Fabrik für Threads niedriger Priorität.
-  static class LowPriorityThreadFactory implements ThreadFactory {
+  static class LowPrioTFactory implements ThreadFactory {
     @Override
     public Thread newThread(Runnable r) {
-      Thread newThread = new Thread(lowPriorityThreadGroup, r);
-      newThread.setName("Low Priority Thread");
-      newThread.setPriority(2);
-      return newThread;
+      Thread newT = new Thread(lowPrioTGroup, r);
+      newT.setName("Low Priority Thread");
+      newT.setPriority(2);
+      return newT;
     }
   }
 
@@ -51,19 +51,19 @@ public class ThreadManagement {
   }
 
   public static void main(String[] args) throws InterruptedException {
-    Thread lowPriorityLocalDataThread = new LowPriorityThreadFactory().newThread(new LocalDataRunnable());
-    Thread localDataThread = new Thread(new LocalDataRunnable());
+    Thread lowPrioLocalDataT = new LowPrioTFactory().newThread(new LocalDataRunnable());
+    Thread localDataT = new Thread(new LocalDataRunnable());
 
     // Allgemeine Infos ausgeben.
-    System.out.printf("[lowPriorityFactoryThread] {id: %s, status: %s}\n", lowPriorityLocalDataThread.getId(), lowPriorityLocalDataThread.getState());
-    System.out.printf("[active threads in low priority thread group]: %d\n", lowPriorityThreadGroup.activeCount());
+    System.out.printf("[lowPriorityFactoryThread] {id: %s, status: %s}\n", lowPrioLocalDataT.getId(), lowPrioLocalDataT.getState());
+    System.out.printf("[active threads in low priority thread group]: %d\n", lowPrioTGroup.activeCount());
 
     // Zweifach, zeitversetzt die Datumswerte aus [LocalDataRunnable] ausgeben.
-    lowPriorityLocalDataThread.start();
-    lowPriorityLocalDataThread.join();
+    lowPrioLocalDataT.start();
+    lowPrioLocalDataT.join();
     TimeUnit.SECONDS.sleep(2);
-    localDataThread.start();
-    localDataThread.join();
+    localDataT.start();
+    localDataT.join();
     // Auffällig ist, dass [dateShared] den zuerst gesetzten Wert beibehält.
 
     /* --- */

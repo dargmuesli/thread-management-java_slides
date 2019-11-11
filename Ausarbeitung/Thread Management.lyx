@@ -6,10 +6,13 @@
 \origin unavailable
 \textclass scrbook
 \begin_preamble
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
 % Scale source code font
 \usepackage{etoolbox}
 \AtBeginEnvironment{minted}{%\singlespacing%
-    \fontsize{11}{11}\selectfont}
+    \fontsize{10}{10}\selectfont}
 
 \usepackage{minted}
 
@@ -117,7 +120,7 @@ customHeadersFooters
 \pdf_pdfusetitle true
 \pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
 \papersize a4paper
-\use_geometry false
+\use_geometry true
 \use_package amsmath 2
 \use_package amssymb 2
 \use_package cancel 1
@@ -140,7 +143,7 @@ customHeadersFooters
 \justification true
 \use_refstyle 0
 \use_minted 1
-\branch LifeCycle
+\branch Basics
 \selected 1
 \filename_suffix 0
 \color #faf0e6
@@ -170,12 +173,7 @@ customHeadersFooters
 \filename_suffix 0
 \color #faf0e6
 \end_branch
-\branch ExceptionHandling
-\selected 1
-\filename_suffix 0
-\color #faf0e6
-\end_branch
-\branch DataLocality
+\branch Advanced
 \selected 1
 \filename_suffix 0
 \color #faf0e6
@@ -204,6 +202,10 @@ customHeadersFooters
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 2.5cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 4cm
 \secnumdepth 3
 \tocdepth 2
 \paragraph_separation skip
@@ -301,61 +303,6 @@ pagestyle{fancy}
 
 \end_layout
 
-\begin_layout Left Header
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-chaptername
-\end_layout
-
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-thechapter
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-rightmark
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \begin_inset Branch Introduction
 inverted 0
@@ -397,14 +344,14 @@ filename "Threads.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch LifeCycle
+\begin_inset Branch Basics
 inverted 0
 status open
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "LifeCycle.lyx"
+filename "Basics.lyx"
 
 \end_inset
 
@@ -417,54 +364,14 @@ filename "LifeCycle.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Branch ExceptionHandling
+\begin_inset Branch Advanced
 inverted 0
 status open
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "ExceptionHandling.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch DataLocality
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "DataLocality.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch Changes
-inverted 0
-status open
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Changes.lyx"
+filename "Advanced.lyx"
 
 \end_inset
 
