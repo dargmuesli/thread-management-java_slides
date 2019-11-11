@@ -1,14 +1,7 @@
 public class Properties {
     public static void main(String[] args) throws InterruptedException {
 
-Thread t = new Thread(() -> {
-    // Endlose Schleife bis zum Unterbrechen.
-    while (true) {
-        if (Thread.interrupted()) {
-            return;
-        }
-    }
-});
+Thread t = new Thread(() -> {});
 System.out.printf("Id: %s\nName: %s\nPrioritaet: %s\nStatus: %s\n\n",
         t.getId(), t.getName(), t.getPriority(), t.getState());
 

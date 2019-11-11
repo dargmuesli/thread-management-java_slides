@@ -22,12 +22,15 @@ public class Locality {
         t2.start();
         t2.join();
 
-        /* Ausgabe z.B.:
+        /*
+        Ausgabe z.B.:
+        ---
         [dateLocal] Fri Nov 01 20:00:00 CET 2019
         [dateShared] Fri Nov 01 20:00:00 CET 2019
         [dateLocal] Fri Nov 01 20:00:02 CET 2019
         [dateShared] Fri Nov 01 20:00:00 CET 2019
+        ---
+        [dateShared] bleibt beim ursprünglichen Wert, weil das Feld für [LocalDataRunnable] nur einmal (für alle Threads des Runnables) gesetzt wird.
          */
-        // [dateShared] bleibt beim ursprünglichen Wert, weil das Feld für [LocalDataRunnable] nur einmal (für alle Threads des Runnables) gesetzt wird.
     }
 }

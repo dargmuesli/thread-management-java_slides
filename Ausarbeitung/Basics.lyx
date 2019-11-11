@@ -1394,43 +1394,12 @@ status open
 
 \begin_layout Plain Layout
 
-Thread t = new Thread(() -> {
+Thread t = new Thread(() -> {});
 \end_layout
 
 \begin_layout Plain Layout
 
-    // Endlose Schleife bis zum Unterbrechen.
-\end_layout
-
-\begin_layout Plain Layout
-
-    while (true) {
-\end_layout
-
-\begin_layout Plain Layout
-
-        if (Thread.interrupted()) { // Kürzer als Thread.currentThread().isInterrup
-ted()
-\end_layout
-
-\begin_layout Plain Layout
-
-            return;
-\end_layout
-
-\begin_layout Plain Layout
-
-        }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-});
+t.start();
 \end_layout
 
 \begin_layout Plain Layout

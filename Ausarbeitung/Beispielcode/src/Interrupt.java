@@ -9,6 +9,7 @@ Thread t = new Thread(() -> {
         }
     }
 });
+t.start();
 t.interrupt();
 System.out.println("Unterbrechungsindikator ist" + (t.isInterrupted() ? "" : " nicht") + " gesetzt.");
 // Gibt "Unterbrechungsindikator ist nicht gesetzt." aus.

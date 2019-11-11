@@ -401,42 +401,7 @@ status open
 
 \begin_layout Plain Layout
 
-Thread t = new Thread(() -> {
-\end_layout
-
-\begin_layout Plain Layout
-
-    // Endlose Schleife bis zum Unterbrechen.
-\end_layout
-
-\begin_layout Plain Layout
-
-    while (true) {
-\end_layout
-
-\begin_layout Plain Layout
-
-        if (Thread.interrupted()) {
-\end_layout
-
-\begin_layout Plain Layout
-
-            return;
-\end_layout
-
-\begin_layout Plain Layout
-
-        }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-});
+Thread t = new Thread(() -> {});
 \end_layout
 
 \begin_layout Plain Layout
@@ -1898,7 +1863,17 @@ n", dateShared);
 
 \begin_layout Plain Layout
 
-        /* Ausgabe z.B.:
+        /*
+\end_layout
+
+\begin_layout Plain Layout
+
+        Ausgabe z.B.:
+\end_layout
+
+\begin_layout Plain Layout
+
+        ---
 \end_layout
 
 \begin_layout Plain Layout
@@ -1923,9 +1898,19 @@ n", dateShared);
 
 \begin_layout Plain Layout
 
-         */ // [dateShared] bleibt beim ursprünglichen Wert, weil das Feld
- für [LocalDataRunnable] nur einmal (für alle Threads des Runnables) gesetzt
+        ---
+\end_layout
+
+\begin_layout Plain Layout
+
+        [dateShared] bleibt beim ursprünglichen Wert, weil das Feld für
+ [LocalDataRunnable] nur einmal (für alle Threads des Runnables) gesetzt
  wird.
+\end_layout
+
+\begin_layout Plain Layout
+
+         */
 \end_layout
 
 \begin_layout Plain Layout
