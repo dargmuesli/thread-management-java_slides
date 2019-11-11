@@ -1300,13 +1300,12 @@ false
 
 .
  Soll der Unterbrechungsindikator eines 
+\shape slanted
 \lang english
 Thread
 \lang ngerman
--
-\bar under
-Objekts
-\bar default
+-Objekts
+\shape default
  abgefragt werden, kann nur 
 \begin_inset listings
 lstparams "language=Java"
@@ -1321,9 +1320,12 @@ isInterrupted()
 \end_inset
 
  verwendet werden.
- Zur Überprüfung innerhalb desselben 
+ Zur Überprüfung 
+\shape slanted
+innerhalb desselben 
 \lang english
 Threads
+\shape default
 \lang ngerman
  kann auch 
 \begin_inset listings
