@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Thread Management in Java</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-black-orange">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="89ba853b4391890adb91d3dfcbf7a7ef" data-background-image="thread-management-in-java/9eaeef193eb1e1931067594e5b136bb8.jpg" data-background-opacity="0.4"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 109px; height: auto;" data-block-id="0836d04aae99881759ccf88716fab4da"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(255, 255, 255);">
+<h1><strong><span style="font-size:1.2em">Thread Management in Java</span></strong></h1>
+</div></div></section><section data-id="080720c8ea7806b2ca9864dfbe5be4a1"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 880px; left: 39px; top: 217px;" data-block-id="9233ffdbfa843368b5a7a1f07c6e423f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; line-height: 2.6; font-size: 120%;" data-has-line-height="" dir="ui">
+<ol>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:1.2em">Begriffsklärung</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:1.2em">Grundlegende Thread-Programmierung</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="font-size:1.2em">Weiterführende Konzepte</span></li>
+</ol>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 70px;" data-block-id="0ab6cf92e6f3715f8f3303084e39c31a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h2><span style="font-size:1.2em"><strong>Gliederung</strong></span></h2>
+</div></div></section><section data-id="3f061de5b281779318d7f1f951cb5cfe" data-background-image="thread-management-in-java/24b77d71af2cbe3a5407d7b589e6363a.jpg" data-background-opacity="0.33"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 960px; left: 0px; top: 276px;" data-block-id="a147612463cf9aeca84bebde4f632c3c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h2><span style="font-size:1.6em"><strong>Begriffsklärung</strong></span></h2>
+</div></div></section><section class="stack" data-id="d4e079c9612bbae790e13aea3a21d7ca"><section data-id="4a39d48dc4a43a5e6e34d0bf29d50565"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 960px; left: 0px; top: 70px;" data-block-id="673ebe1a03fd26a1116c280052cf679a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><span style="font-size:1.4em"><strong>Nebenläufig vs. Parallel</strong></span></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 800px; left: 80px; top: 210px;" data-block-id="513d83c02d8a9237c146a937da942889"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; line-height: 1.56;" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0">
+<span style="font-size:1.2em">Prozess</span>
+	<ul>
+		<li class="fragment" data-fragment-index="1"><span style="font-size:1.2em">Programminstanz mit eigenem Speicherbereich</span></li>
+		<li class="fragment" data-fragment-index="2"><span style="font-size:1.2em">Enthält immer &gt;= 1 Thread</span></li>
+	</ul>
+	</li>
+	<li class="fragment" data-fragment-index="3">
+<span style="font-size:1.2em">Thread</span>
+	<ul>
+		<li class="fragment" data-fragment-index="4"><span style="font-size:1.2em">leichtgewichtiger Prozess</span></li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="7fd34df862a3918f9d03b0d4486877e6"><div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="b5fcbde927ffd6a20c0512a8c60329bc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h3><span style="font-size:1.4em"><strong>Nebenläufig vs. Parallel</strong></span></h3>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 320px; height: 316px; left: 320px; top: 262px;" data-block-id="d94f8c2cd64303a6f5ddc5c04d862f95"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="false" style="z-index: 12; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 316 316"><ellipse rx="158" ry="158" cx="158" cy="158" class="shape-element" fill="rgb(255, 255, 255)"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 186px; left: 387px; top: 313px;" data-block-id="bda59ec021f1d62185cb0f65662a0019"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(0, 0, 0);" data-fragment-index="0">
+<p><strong>nebenläufig</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 300px; height: 210px; left: 331px; top: 368px;" data-block-id="ab2761dbe7aa52e071d0a3dbf008be4b"><div class="sl-block-content fragment" data-shape-type="circle" data-shape-fill-color="#000000" data-shape-stretch="false" style="z-index: 14;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 210 210"><ellipse rx="105" ry="105" cx="105" cy="105" class="shape-element" fill="#000000"></ellipse></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 160px; left: 400px; top: 454px;" data-block-id="6a5a2902d456df5f88a7a09fe8835a35"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="2">
+<p><strong>parallel</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 240px; left: 720px; top: 309px;" data-block-id="efc13894107538e37a215056734e4762"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="1">
+<p><span style="font-size:1.2em">unabhängig</span></p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 658px; top: 332px;" data-block-id="1f0249007ceb2215368de901a2ea3d72"><div class="sl-block-content fragment" data-line-x1="114" data-line-y1="31" data-line-x2="157" data-line-y2="31" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 17;" data-line-width="5px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="43" height="1" viewbox="114 31 43 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="114.5" y1="31.5" x2="153.5" y2="31.5"></line><line stroke="#ffffff" stroke-width="5" x1="114.5" y1="31.5" x2="153.5" y2="31.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="5" transform="translate(153,31) rotate(90)" d="M 11.25 11.25 L 0 0 L -11.25 11.25"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 658px; top: 473px;" data-block-id="894dc47bb4cb9eccb1dc68ff97924cd8"><div class="sl-block-content fragment" data-line-x1="114" data-line-y1="31" data-line-x2="157" data-line-y2="31" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 18;" data-line-width="5px" data-fragment-index="3"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="43" height="1" viewbox="114 31 43 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="114.5" y1="31.5" x2="153.5" y2="31.5"></line><line stroke="#ffffff" stroke-width="5" x1="114.5" y1="31.5" x2="153.5" y2="31.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="5" transform="translate(153,31) rotate(90)" d="M 11.25 11.25 L 0 0 L -11.25 11.25"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 241px; left: 719px; top: 423px;" data-block-id="54fcaf29c2a1e1b5f78419aca21d714d"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;" data-fragment-index="3">
+<p><span style="font-size:1.2em">unabhängig</span></p>
+
+<p><span style="font-size:1.2em">&amp; gleichzeitig</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 245px; left: 0px; top: 358px;" data-block-id="9761d4e8ba807ecd33d9c562ffbda8fb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<p><span style="font-size:1.2em">Vorgänge</span></p>
+
+<p><span style="font-size:1.2em">sind</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 189px; left: 175px; top: 295px;" data-block-id="1cdf0afd12819092711ce04241c04b55"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; font-size: 500%;" data-fragment-index="2">
+<p><span style="font-size:1.0em">{</span></p>
+</div></div></section><section data-id="bce4137b9279190c9b15e14e056c1e4c"><div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="3c3c11f143e093dc26bbd1a8308e75d9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><span style="font-size:1.4em"><strong>Nebenläufig vs. Parallel</strong></span></h3>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 165px; top: 210px;" data-block-id="5c2189a8f486912dc35ac17d84dc56b5"><div class="sl-block-content" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 253px; left: 354px; top: 226px;" data-block-id="6faae8917b748c91604e6f50b7138daa"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<p><strong>nur nebenläufig</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 253px; left: 354px; top: 401px;" data-block-id="48b86e092bf8e0edfb0feab9ccd44c52"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="2">
+<p><strong>auch parallel</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 253px; left: 354px; top: 601px;" data-block-id="8cd122764a6fe5f1cd996bf569d15fdf"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="4">
+<p><strong>verteilt</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 200px; top: 351px;" data-block-id="4aba45c9f3bdf53aaece4b562a7e9a17"><div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="1"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 200px; top: 420px;" data-block-id="02085d7e9cb490c3d22c646f6171ca60"><div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="1"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 130px; top: 420px;" data-block-id="4c756fc702a6186ccb4f775255e27f01"><div class="sl-block-content fragment" style="z-index: 17;" data-fragment-index="1"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 130px; top: 350px;" data-block-id="a20c784df34e077b2b00cad53620deae"><div class="sl-block-content fragment" style="z-index: 18;" data-fragment-index="1"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 200px; top: 552px;" data-block-id="0e4af103df7acc8a49573c25da6f3858"><div class="sl-block-content fragment" style="z-index: 19;" data-fragment-index="3"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 200px; top: 621px;" data-block-id="b948039fc817a32e8798955edeb25fd6"><div class="sl-block-content fragment" style="z-index: 21;" data-fragment-index="3"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 130px; top: 621px;" data-block-id="407331a40e20f239b6441ee59697a026"><div class="sl-block-content fragment" style="z-index: 23;" data-fragment-index="3"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 130px; top: 551px;" data-block-id="bb9435ce7091fa88ea7bd040bb4af193"><div class="sl-block-content fragment" style="z-index: 25;" data-fragment-index="3"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 761px; top: 561px;" data-block-id="3ffbd43f148c839ab0ea64cd927346ec"><div class="sl-block-content fragment" style="z-index: 28;" data-fragment-index="3"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 761px; top: 630px;" data-block-id="b42c7d934dee97f9f0c998ff009cf353"><div class="sl-block-content fragment" style="z-index: 29;" data-fragment-index="3"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 691px; top: 630px;" data-block-id="7cfd84b17ba86e43b5b1f1ec165867dc"><div class="sl-block-content fragment" style="z-index: 30;" data-fragment-index="3"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 691px; top: 560px;" data-block-id="84f126f91a67e706353f59c955515a20"><div class="sl-block-content fragment" style="z-index: 31;" data-fragment-index="3"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/16f4dc6dc135c95763a492c22f0ea684.svg"></div></div></section></section><section data-background-opacity="0.5" data-id="06c581d96fb4e4e7714516dd3efbe12f" data-background-image="thread-management-in-java/1b7833b9b5a9d105abc2bf7cd9b644ae"><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 0px; top: 389px;" data-block-id="c25894ad61744fa23e2e1a3454b1f227"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h2><span style="font-size:1.4em"><strong>Grundlegende Thread-Programmierung</strong></span></h2>
+</div></div></section><section data-id="08a5e1b501cc4be2d0b8e96ea97124a5"><div class="sl-block" data-block-type="code" style="width: 960px; height: 235px; left: 0px; top: 210px;" data-block-id="a17e18180ba0113a8c7ca0b30fae6415"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 10; font-size: 140%;" data-fragment-index="0"><pre class="java"><code data-line-numbers="">static class RunnableThread implements Runnable {
+    @Override
+    public void run() {
+        // Thread-Logik
+    }
+}
+
+Thread runnableThread = new Thread(new RunnableThread());</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="9af908362604c9b71360f8c195c7f667"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Erzeugen und Ausführen</span></strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 231px; left: 0px; top: 469px;" data-block-id="646dc3d6f360aaf06c37eb7109456b94"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 13; font-size: 140%;" data-fragment-index="1"><pre class="java"><code data-line-numbers="">static class ExtendedThread extends Thread {
+    @Override
+    public void run() {
+        // Thread-Logik
+    }
+}
+
+Thread extendedThread = new ExtendedThread();</code></pre></div></div></section><section data-id="f78e670234032e58ae4cfac5408811ef"><div class="sl-block" data-block-type="code" style="width: 960px; height: 183px; left: 0px; top: 350px;" data-block-id="ebc734ddd8ebcaadaa356d5e2b955f17"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 140%;" data-fragment-index="1"><pre class="java"><code data-line-numbers="">try {
+    Thread.sleep(1000);
+    TimeUnit.SECONDS.sleep(1);
+} catch (InterruptedException e) {
+    // ...
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="523a030dbd08a07269c1366581ff5907"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Pausieren</span></strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 800px; left: 80px; top: 210px;" data-block-id="363ca4b61022aa97729089076ee47d6e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p><span style="font-size:1.2em"><strong>= Warten ohne Verschwendung von Prozessorressourcen</strong></span></p>
+</div></div></section><section data-id="c3ef65720851096181d86e89b15ca1fc"><div class="sl-block" data-block-type="code" style="width: 960px; height: 258px; left: 0px; top: 232px;" data-block-id="896709aebb652c4a00abe8a6238c2537"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 10; font-size: 140%;" data-fragment-index="0"><pre class="java"><code data-line-numbers="">public static void main(String[] args)
+    throws InterruptedException {
+    
+    Thread t = new Thread(() -&gt; {
+        // irgendeine Berechnung
+    });
+    t.start();
+    t.join(1000);
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="5881e61b6b2eb33066251b974924ed82"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Auf anderen Thread warten</span></strong></h3>
+</div></div></section><section data-id="12269d36aa72fc24d18f1b6ef6cf04f6"><div class="sl-block" data-block-type="code" style="width: 960px; height: 370px; left: 0px; top: 330px;" data-block-id="66d94634b85e0358a545bc3505ac4b4e"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 10; font-size: 140%;" data-fragment-index="5"><pre class="java"><code data-line-numbers="">Thread t = new Thread(() -&gt; {
+    // Endlose Schleife bis zum Unterbrechen.
+    while (true) {
+        if (Thread.interrupted()) {
+            return;
+        }
+    }
+});
+t.start();
+t.interrupt();
+System.out.println("Unterbrechungsindikator ist"
+        + (t.isInterrupted() ? "" : " nicht")
+        + " gesetzt.");</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="9495f9ada0f29eedb8642b4acca3322a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Unterbrechen</span></strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 240px; left: 160px; top: 219px;" data-block-id="342b20110a1237552c3e46657d1afa3a"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="1">
+<p style="text-align: left;"><span style="font-size:1.4em"><strong>interrupt()</strong></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 560px; top: 243px;" data-block-id="6f3bc5012bffb14ed0b9c4b935eaa1a5"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="4">
+<p style="text-align:right"><span style="font-size:1.4em"><strong>isInterrupted()</strong></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 80px; top: 188px;" data-block-id="76a961692d634b93f48eb8c1352a7ef3"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="0">
+<p><span style="font-size:3.0em"><strong>!</strong></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 480px; top: 188px;" data-block-id="cfdc1b7703cb6608a139bf6cc9b59b3e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="2">
+<p><span style="font-size:3.0em"><strong>?</strong></span></p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 441px; top: 188px;" data-block-id="d87272d35275e4c8a214959870ddc758"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="0" data-line-y2="83" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 17;" data-line-width="5px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="117" viewbox="0 83 1 117"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="200.5" x2="0.5" y2="83.5"></line><line stroke="#ffffff" stroke-width="5" x1="0.5" y1="200.5" x2="0.5" y2="83.5"></line></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 560px; top: 188px;" data-block-id="03ade0ed8a63c06c481d7ea1f899f80b"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;" data-fragment-index="3">
+<p style="text-align:right"><span style="font-size:1.4em"><strong>interrupted()</strong></span></p>
+</div></div></section><section data-id="46fa92f04b74e6f66b02590e2488ba22" data-background-image="thread-management-in-java/72368072b94a1f1b3fa8282c33e6f5fe.jpg" data-background-opacity="0.33"><div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 258px;" data-block-id="e2e5f4b109e5a593e9f63374890173ee"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h2><span style="font-size:2.0em"><strong>Weiterführende Konzepte</strong></span></h2>
+</div></div></section><section class="stack" data-id="7037a6528133dc82a9bd527c255810bc"><section data-id="49184bd5c7adc34c237bac1b35232342">
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 240px; left: 160px; top: 280px;" data-block-id="48913e6138322e8bb9a640cc4ff3b52b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left; font-size: 120%; line-height: 1.625;" dir="ui" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:1.2em">ID</span></li>
+	<li class="fragment" data-fragment-index="3"><span style="font-size:1.2em">Name</span></li>
+	<li class="fragment" data-fragment-index="4"><span style="font-size:1.2em">Priorität</span></li>
+	<li class="fragment" data-fragment-index="6"><span style="font-size:1.2em">Status</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 315px; left: 443px; top: 421px;" data-block-id="5ee9f5ab9e82cb624f685a5053f28350"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; font-size: 120%; line-height: 1.495;" dir="ui" data-has-line-height="" data-fragment-index="5">
+<p class="fragment" data-fragment-index="4"><strong><span style="font-size:1.2em">1 &lt;= x &lt;= 10</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 443px; top: 280px;" data-block-id="4f1f0302d99427c05a5892ce79cd254f"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/2cf159b66f94a4ec92ce2129efed7404.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 523px; top: 280px;" data-block-id="f05055174e940b2c11e53a7244ed83dd"><div class="sl-block-content fragment" style="z-index: 14;" data-inline-svg="false" data-fragment-index="2"><img style="" data-natural-width="1024" data-natural-height="1024" data-lazy-loaded="" data-src="thread-management-in-java/31c845f5cdd6b2c265a87c749783cca6.svg"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 443px; top: 490px;" data-block-id="ab5fc32e374497cd813771b7c16e333c"><div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="7"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/2cf159b66f94a4ec92ce2129efed7404.svg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 27px;" data-block-id="cdeb705cfee1eeacd1a6c681e1385122"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Eigenschaften</span></strong></h3>
+
+<h3><strong><span style="font-size:1.4em">von Thread-Objekten</span></strong></h3>
+</div></div></section><section data-id="ef4ececc10dfaa6e0693a74e2cd47e07">
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 27px;" data-block-id="9c6df4fbf2cf2adbb982da54a7579c01"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong><span style="font-size:1.4em">Eigenschaften</span></strong></h3>
+
+<h3><strong><span style="font-size:1.4em">von Thread-Objekten</span></strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 223px;" data-block-id="fd9aeecd0bf6d329f0a18db6a921361b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><span style="color:#DDA0DD"><span style="font-size:2.5em"><strong>Status</strong></span></span></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 120px; top: 420px;" data-block-id="9b950fd56be8073e6655eb2f70a241d4"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<p><strong><span style="color:#DDA0DD">NEW</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 167px; left: 393px; top: 420px;" data-block-id="786216be631b1fb2f714465e75d9f1f9"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p><strong><span style="color:#DDA0DD">RUNNABLE</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 194px; left: 703px; top: 420px;" data-block-id="0a62c2e36c2bbbc920e72d4868066615"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
+<p><strong><span style="color:#DDA0DD">TERMINATED</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 139px; left: 294px; top: 591px;" data-block-id="1af88bcd7901e5e050cd18794bf81b1e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="0">
+<p><strong><span style="color:#DDA0DD">WAITING</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 265px; left: 505px; top: 591px;" data-block-id="a56665f4c18df08a76d05081f8f8530d"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="0">
+<p><strong><span style="color:#DDA0DD">TIMED_WAITING</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 80px; top: 440px;" data-block-id="8072ab68ccb8a76e2503955e40b3ad5c"><div class="sl-block-content fragment" data-line-x1="20" data-line-y1="-20" data-line-x2="52" data-line-y2="-20" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 17;" data-line-width="3px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="32" height="1" viewbox="20 -20 32 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="20.5" y1="-19.5" x2="50.5" y2="-19.5"></line><line stroke="#ffffff" stroke-width="3" x1="20.5" y1="-19.5" x2="50.5" y2="-19.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(50,-20) rotate(90)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 216px; top: 440px;" data-block-id="7800f66f83f502101b837da7d9551cc5"><div class="sl-block-content fragment" data-line-x1="36" data-line-y1="-20" data-line-x2="205" data-line-y2="-20" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 18;" data-line-width="3px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="169" height="1" viewbox="36 -20 169 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="36.5" y1="-19.5" x2="203.5" y2="-19.5"></line><line stroke="#ffffff" stroke-width="3" x1="36.5" y1="-19.5" x2="203.5" y2="-19.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(203,-20) rotate(90)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 572px; top: 440px;" data-block-id="8c9acd3bf829f09106e1950552dbbf7e"><div class="sl-block-content fragment" data-line-x1="36" data-line-y1="-20" data-line-x2="158" data-line-y2="-20" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 19;" data-line-width="3px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="122" height="1" viewbox="36 -20 122 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="36.5" y1="-19.5" x2="156.5" y2="-19.5"></line><line stroke="#ffffff" stroke-width="3" x1="36.5" y1="-19.5" x2="156.5" y2="-19.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(156,-20) rotate(90)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 393px; top: 474px;" data-block-id="006c9bb553e14bf28a863210e49600bf"><div class="sl-block-content fragment" data-line-x1="54" data-line-y1="-15" data-line-x2="15" data-line-y2="94" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 20;" data-line-width="3px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="39" height="109" viewbox="15 -15 39 109"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="54.5" y1="-14.5" x2="16.5" y2="92.5"></line><line stroke="#ffffff" stroke-width="3" x1="54.5" y1="-14.5" x2="16.5" y2="92.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(16,92) rotate(199.687)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 514px; top: 473px;" data-block-id="39b16a617d66184d630567be3936e08a"><div class="sl-block-content fragment" data-line-x1="125" data-line-y1="-25" data-line-x2="153" data-line-y2="85" data-line-color="#ffffff" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 21;" data-line-width="3px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="28" height="110" viewbox="125 -25 28 110"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="126.5" y1="-22.5" x2="153.5" y2="85.5"></line><line stroke="#ffffff" stroke-width="3" x1="126.5" y1="-22.5" x2="153.5" y2="85.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(126,-23) rotate(165.719)" d="M -6.75 -6.75 L 0 0 L 6.75 -6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 92px; left: 255px; top: 381px;" data-block-id="bd868d9592cd73609fd588678f96ebad"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;" data-fragment-index="0">
+<p>start()</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 160px; left: 553px; top: 381px;" data-block-id="169b5b6516f74676be2d29ef409fa3e2"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23;" data-fragment-index="0">
+<p>interrupt()</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 109px; left: 560px; top: 513px;" data-block-id="3150c928403dc35b9ee8d5efabd8dd0c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24;" data-fragment-index="0">
+<p>join(n)</p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 406px; top: 473px;" data-block-id="fbcb97d3e1bcb2d70a181a3f16b5f3d1"><div class="sl-block-content fragment" data-line-x1="54" data-line-y1="-15" data-line-x2="15" data-line-y2="95" data-line-color="#ffffff" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 26;" data-line-width="3px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="39" height="110" viewbox="15 -15 39 110"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="53.5" y1="-12.5" x2="15.5" y2="95.5"></line><line stroke="#ffffff" stroke-width="3" x1="53.5" y1="-12.5" x2="15.5" y2="95.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(53,-13) rotate(199.522)" d="M -6.75 -6.75 L 0 0 L 6.75 -6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 528px; top: 473px;" data-block-id="6bee2cb5cb9d0da4ce7e0718fb91b794"><div class="sl-block-content fragment" data-line-x1="125" data-line-y1="-25" data-line-x2="150" data-line-y2="85" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 27;" data-line-width="3px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="25" height="110" viewbox="125 -25 25 110"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="125.5" y1="-24.5" x2="150.5" y2="83.5"></line><line stroke="#ffffff" stroke-width="3" x1="125.5" y1="-24.5" x2="150.5" y2="83.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(150,83) rotate(167.196)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 99px; left: 301px; top: 513px;" data-block-id="fa93355ba2bebca48c0f656e0d2917f0"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 28;" data-fragment-index="0">
+<p>join()</p>
+</div></div></section><section data-id="210011d377e8a62c518e65791251ea9b">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 27px;" data-block-id="517d98104f54d53e178dacf21455aeb3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong><span style="font-size:1.4em">Eigenschaften</span></strong></h3>
+
+<h3><strong><span style="font-size:1.4em">von Thread-Objekten</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 350px; left: 0px; top: 280px;" data-block-id="f10787d8087be61de960acf8bf05823e"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 12; font-size: 130%; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in"><pre class="java"><code data-line-numbers="">Thread t = new Thread(() -&gt; {});
+System.out.printf("Id: %s\nName: %s\nPrioritaet: %s\nStatus: %s\n\n",
+        t.getId(), t.getName(), t.getPriority(), t.getState());
+
+t.setName("Calculator");
+t.setPriority(1);
+t.start();
+System.out.printf("Name: %s\nPrioritaet: %s\nStatus: %s\n\n",
+        t.getName(), t.getPriority(), t.getState());
+
+t.interrupt();
+t.join();
+System.out.printf("Status: %s\n\n", t.getState());</code></pre></div></div></section><section data-id="6ec384909e67afa11fb0bd6d2b3a3ca6">
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 528px; height: 350px; left: 0px; top: 280px;" data-block-id="5b44bf199129b02690b14ae9bd4a48e8"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;"><pre class="java"><code data-line-numbers="">Thread t = new Thread(() -&gt; {});
+System.out.printf(...
+
+
+t.setName("Calculator");
+t.setPriority(1);
+t.start();
+System.out.printf(...
+
+
+t.interrupt();
+t.join();
+System.out.printf(...</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 27px;" data-block-id="253446455ad54c828ddc67c0fc96794c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h3><strong><span style="font-size:1.4em">Eigenschaften</span></strong></h3>
+
+<h3><strong><span style="font-size:1.4em">von Thread-Objekten</span></strong></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 325px; left: 599px; top: 310px;" data-block-id="7573dc50c2bd3147598aabcd9d3ab334"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(255, 255, 255); transition-duration: 0.6s; transition-delay: 1.6s;" dir="ui" data-animation-type="fade-in">
+<pre style="text-align:left">Id: 11
+Name: Thread-0
+Prioritaet: 5
+Status: NEW
+
+Name: Calculator
+Prioritaet: 1
+Status: RUNNABLE
+
+Status: TERMINATED</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 325px; left: 599px; top: 225px;" data-block-id="b3558850e713a078d4a6ebb5b2928a82"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; transition-duration: 0.6s; transition-delay: 1.2s;" data-animation-type="fade-in">
+<p><span style="font-size:1.4em"><strong>Ausgabe</strong></span></p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 557px; top: 200px;" data-block-id="7e035aadf54d1ac28cbc3e91274cb528"><div class="sl-block-content" data-line-x1="180" data-line-y1="450" data-line-x2="180" data-line-y2="-50" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 15; transition-duration: 0.6s; transition-delay: 0.8s;" data-line-width="3px" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="500" viewbox="180 -50 1 500"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="180.5" y1="450.5" x2="180.5" y2="-49.5"></line><line stroke="#ffffff" stroke-width="3" x1="180.5" y1="450.5" x2="180.5" y2="-49.5"></line></svg></div></div></section></section><section class="stack" data-id="eee3766ab2d44d2b9733edd684b27403"><section data-id="8fb1df2250862f1f575182fd767de39a">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="92e43c8618e2c943d69c988c39ad4717"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Daemon-Threads</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 280px; left: 0px; top: 210px;" data-block-id="6b9db1adfff01f632dc8ab9883b58bec"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 12; font-size: 130%;" data-fragment-index="0"><pre class="java"><code data-line-numbers="">public static void main(String[] args) {
+    Thread dt = new Thread(() -&gt; {
+        while (true) {}
+    });
+    dt.setDaemon(true);
+    dt.start();
+}</code></pre></div></div></section><section data-id="7425703421592e16988f430eac9075a2">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="8e006f00730d202555859791176bcc07"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong><span style="font-size:1.4em">Daemon-Threads</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 280px; left: 0px; top: 210px;" data-block-id="ff2aa433dc92b18ea293ee1467e1720f"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;"><pre class="java"><code data-line-numbers="">public static void main(String[] args) {
+    Thread dt = new Thread(() -&gt; {
+        while (true) {}
+    });
+    dt.setDaemon(true);
+    dt.start();
+    // Dieses Programm endet hier 
+    // trotz der Endlosschleife im Daemon-Thread.
+}</code></pre></div></div></section></section><section data-id="4640f06780ec07b02e33d095e795e01a">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="44198a24a0e41f9e30fd9f36ab6fce86"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Thread-Gruppen</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 90px; left: 0px; top: 210px;" data-block-id="1ee8f9ab06d7013627076bc5f3af47b2"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 12; font-size: 130%;" data-fragment-index="1"><pre class="java"><code data-line-numbers="">ThreadGroup parentGroup = new ThreadGroup("Parent");
+new ThreadGroup(parentGroup, "Child");
+new Thread(parentGroup, () -&gt; {});</code></pre></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 210px; height: 210px; left: 375px; top: 420px;" data-block-id="0282f53b6eb5802f51c99d77c572aaa5"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/52396352f3cf915f21c7f9a6207c921b.svg"></div></div></section><section class="stack" data-id="66ad94fa2ead969fdf401d02fde4eb18"><section data-id="e6e049735633c7e744a202db85d77058">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="cde27dc925878e2982c3029441352974"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Thread-Factories</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 210px; left: 0px; top: 210px;" data-block-id="5aa7dfc217620fcc19c2bd3a2a349cdf"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;" data-fragment-index="0"><pre class="java"><code data-line-numbers="">ThreadFactory threadFactory = r -&gt; null;
+Thread t = threadFactory.newThread(() -&gt; {});
+
+if (t == null) {
+    System.out.println("Thread ist null.");
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 210px; height: 210px; left: 375px; top: 490px;" data-block-id="6eca0884a2c259e92b557c708893b135"><div class="sl-block-content" style="z-index: 13; transition-duration: 0.6s; transition-delay: 1.2s;" data-inline-svg="false" data-animation-type="fade-in"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/0337750a10c70666c5055b93d941f403.svg"></div></div></section><section data-id="e2c2451eaa0d0293751f226b4536f7bf">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="4583c358586d84d22910b3f2e0d491a8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong><span style="font-size:1.4em">Thread-Factories</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 210px; left: 0px; top: 210px;" data-block-id="c235d09114f97ea2e601b9c232b11818"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;"><pre class="java"><code data-line-numbers="">ThreadFactory threadFactory = r -&gt; null;
+Thread t = threadFactory.newThread(() -&gt; {});
+
+if (t == null) {
+    System.out.println("Thread ist null.");
+}
+// Gibt "Thread ist null." aus.</code></pre></div></div>
+<div class="sl-block" data-block-type="image" style="width: 210px; height: 210px; left: 375px; top: 490px; min-width: 4px; min-height: 4px;" data-block-id="70f21a2a3ebf5c28bbd0c555dbe3df01"><div class="sl-block-content" style="z-index: 12;" data-inline-svg="false"><img style="" data-natural-width="300" data-natural-height="300" data-lazy-loaded="" data-src="thread-management-in-java/0337750a10c70666c5055b93d941f403.svg"></div></div></section></section><section class="stack" data-id="4127995e2078e39145e88dbe08bd56e3"><section data-id="1c1514966563317a2617f574dd3e987e">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="78501344a4bdfafac69c1f0e8a03cdc6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Ausnahmebehandlung</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 490px; left: 0px; top: 210px;" data-block-id="49cf2485fb7982b29832528d94b4a34a"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;" data-fragment-index="0"><pre class="java"><code data-line-numbers="">static class UncaughtExceptionHandler
+        implements Thread.UncaughtExceptionHandler {
+    @Override
+    public void uncaughtException(Thread t, Throwable e) {
+        System.out.printf("Look! A %s!\n", e);
+    }
+}</code></pre></div></div></section><section data-id="7eac326027b1e1a7a1bc859d29076853">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="f7d99defaa3bbdaead55c9e50d77dca1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong><span style="font-size:1.4em">Ausnahmebehandlung</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 490px; left: 0px; top: 210px;" data-block-id="bdbd1b7b1559c233f066edd307650d86"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;"><pre class="java"><code data-line-numbers="">static class ExceptionThread implements Runnable {
+    @Override
+    public void run() {
+        try {
+            throw new InterruptedException();
+        } catch (InterruptedException e) {
+            throw new NumberFormatException();
+        }
+    }
+}
+
+public static void main(String[] args) {
+    Thread exceptionT = new Thread(new ExceptionThread());
+    exceptionT.setUncaughtExceptionHandler(
+            new UncaughtExceptionHandler());
+    exceptionT.start();
+}</code></pre></div></div></section><section data-id="4827f72107b366b445f0f0a852900f6d">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="c795502e7219f8ce2186bcb004e089f8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong><span style="font-size:1.4em">Ausnahmebehandlung</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 490px; left: 0px; top: 210px;" data-block-id="6725d6c18691482593b3191489a5ffa4"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;"><pre class="java"><code data-line-numbers="">static class ExceptionThread implements Runnable {
+    @Override
+    public void run() {
+        try {
+            throw new InterruptedException();
+        } catch (InterruptedException e) {
+            throw new NumberFormatException();
+        }
+    }
+}
+
+public static void main(String[] args) {
+    Thread exceptionT = new Thread(new ExceptionThread());
+    exceptionT.setUncaughtExceptionHandler(
+            new UncaughtExceptionHandler());
+    exceptionT.start();
+    // Gibt "Look! A java.lang.NumberFormatException!" aus.
+}</code></pre></div></div></section></section><section class="stack" data-id="435c60302b8aedaa8c9636f048cc0846"><section data-id="e1561d47a633a47cabbb499f5b8db904">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="bb9f94c81fab68bb4fa25f7f1d627a59"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; transition-duration: 0.6s; transition-delay: 0.8s;" data-animation-type="fade-in">
+<h3><strong><span style="font-size:1.4em">Datenlokalität</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 490px; left: 0px; top: 210px;" data-block-id="7a5bfcb6f2819a876abf3f077331de58"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;" data-fragment-index="0"><pre class="java"><code data-line-numbers="">static class LocalDataRunnable implements Runnable {
+
+
+    Date dateShared = new Date();
+
+    @Override
+    public void run() {
+
+        System.out.printf("[dateShared] %s\n", dateShared);
+    }
+}</code></pre></div></div></section><section data-id="77903fdb0dc50c41ff4eb8d984b31b2e">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="eafb0aefad41c8f348b3818889dad8a8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong><span style="font-size:1.4em">Datenlokalität</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 490px; left: 0px; top: 210px;" data-block-id="e46eb4a67bdb82f07eedf6b04401dff2"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;"><pre class="java"><code data-line-numbers="">static class LocalDataRunnable implements Runnable {
+    private static ThreadLocal&lt;Date&gt; dateLocal
+            = ThreadLocal.withInitial(Date::new);
+    Date dateShared = new Date();
+
+    @Override
+    public void run() {
+        System.out.printf("[dateLocal] %s\n", dateLocal.get());
+        System.out.printf("[dateShared] %s\n", dateShared);
+    }
+}</code></pre></div></div></section><section data-id="77ef413baeca3f633987a67d3545e5bc">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 70px;" data-block-id="686af0f2d60e8ec7a52c682dd6821828"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h3><strong><span style="font-size:1.4em">Datenlokalität</span></strong></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 241px; left: 0px; top: 179px;" data-block-id="6599e2ff87a799cc3090a1fef5535957"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11; font-size: 130%;"><pre class="java"><code data-line-numbers="">public static void main(String[] args) throws InterruptedException {
+    Thread t1 = new Thread(new LocalDataRunnable()),
+            t2 = new Thread(new LocalDataRunnable());
+    t1.start();
+    t1.join();
+    TimeUnit.SECONDS.sleep(2);
+    t2.start();
+    t2.join();
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 800px; left: 80px; top: 556px;" data-block-id="ab5a1423f1f0459d4c03deaf321402b8"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<pre style="text-align: left;">[dateLocal] Fri Nov 01 20:00:00 CET 2019
+[dateShared] Fri Nov 01 20:00:00 CET 2019
+[dateLocal] Fri Nov 01 20:00:02 CET 2019
+[dateShared] Fri Nov 01 20:00:00 CET 2019</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 325px; left: 80px; top: 463px;" data-block-id="117b13eb615112e47fdb180ee618cc9e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
+<p style="text-align: left;"><span style="font-size:1.4em"><strong>Ausgabe</strong></span></p>
+</div></div></section></section><section data-background-opacity="0.5" data-id="d632b52fd2239a9c60a0bfeec68d054a" data-background-image="thread-management-in-java/bc2a82a2bc74cbc7c1724ba13be0272b"><div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 258px;" data-block-id="6ddca615dca5faed0eddb27ecca0071c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2><span style="font-size:1.6em"><strong>Zusammenfassung</strong></span></h2>
+</div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1644631,"slug":"thread-management-in-java","title":"Thread Management in Java","description":"","width":960,"height":700,"visibility":"all","published_at":"2019-11-10T18:55:58.906Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/9b1575c2a813a1cb9dbb8b589c3acc90/thumb.jpg?1573430491","view_count":2,"user":{"id":1142422,"username":"dargmuesli","name":"Jonas Thelemann","description":"","thumbnail_url":"https://www.gravatar.com/avatar/632fa3870b8c01d361cf16615526654b?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":true,"pro":false,"lite":true,"team_id":null,"settings":{"id":3934566,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"fade","transition":"fade","theme_id":null,"theme_font":"montserrat","theme_color":"black-orange","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":34,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1573439434684,"font_typekit":null,"font_google":null,"time_limit":30,"upsizing_enabled":true,"notes":{"080720c8ea7806b2ca9864dfbe5be4a1":"- Threads und Nebenläufigkeit\n\n- Erzeugen, Starten, Pausieren, Warten, Unterbrechen\n\n- Deamon-Threads, Factory Pattern, Ausnahmebehandlung, ...","4a39d48dc4a43a5e6e34d0bf29d50565":"Fragen: was sind die Unterschiede?\n\n- Betriebssystem: verwaltet Prozesse (eigener Speicherbereich)\n- Prozess hat mind. 1 Thread (leichtgewichtig, Prozessressourcen: Maschinencode-Image, Speicher, ...)\n\nFragen: Nebenläufigkeit immer in Java? -\u003e Garbage Collector","bce4137b9279190c9b15e14e056c1e4c":"","06c581d96fb4e4e7714516dd3efbe12f":"Fragen?\n\nAlle Klassen im java.lang Paket (seit Version 1)\n- kaum Änderungen\n  - destroy() \u0026 stop() aus Thread zu Java 11 entfernt\n    - deprecated, unfunktional, nicht implementiert\n    - Deadlocks, undefiniertes Verhalten\n  - -\u003e kaum Änderungen","04201d1d455b65ff61245310c1ab35d2":"Thread implementiert selbst Runnable.","08a5e1b501cc4be2d0b8e96ea97124a5":"Code wie in Ausarbeitung, kürzer.\n\nThread implementiert selbst Runnable.\n\nVererbungshierarchie: nur ein \"extends\".","f78e670234032e58ae4cfac5408811ef":"- Thread.sleep()\n- TimeUnit Enumeration\n\n- InterruptedException -\u003e Ausnahmebehandlung","c3ef65720851096181d86e89b15ca1fc":"- Abhängigkeit in Ausführungsreihenfolge\n- Berechnung in mehreren Threads, dann nach join() weiter in t1.\n\n- Lambda\n\n- Wartet max. 1s auf [t]'s Beendigung\n\n- Kann InterruptedException auslösen -\u003e Methodensignatur\n\n- Danach ist [t] mit Sicherheit beendet\n  - normal\n  - unterbrochen","12269d36aa72fc24d18f1b6ef6cf04f6":"- interrupt() -\u003e markiert nur! -\u003e muss überprüft werden\n\n- interrupted() und isInterrupted()\n  - interrupted: statisch, setzt flag zurück\n  - isInterrupted: für T.-Objekte\n\nWofür interrupted?\n- Kürzer (Thread.currentThread().isInterrupted())\n- Konvention: flag vor InterruptedException zurücksetzen\n\nGibt \"Unterbrechungsindikator ist nicht gesetzt.\" aus.\nIndikator wurde von interrupted() zurückgesetzt.","d632b52fd2239a9c60a0bfeec68d054a":"- Threads: Konzept auf Betriebssystemebene\n  - Leichtgewichtig\n  - in Prozessen\n\n- Erzeugung: Runnable (Thread erweitern)\n- Pausieren: sleep()\n- Warten: join()\n- Unterbrechen: interrupt()\n\n- Daemon-Threads\n  - Verhindern nicht Beendigung\n- Factory Pattern\n  - zusätzliche Kontrolle über Erzeugung\n- Ausnahmebehandlung\n  - InterruptedException\n  - UncaughtExceptionHandler\n- Datenlokalität\n  - beachten\n  - mit ThreadLocal umgehen\n\nFragen?","fd04bf9ed5a2f223c0eec32d48229322":"","49184bd5c7adc34c237bac1b35232342":"- Alles automatisch initialisiert","8fb1df2250862f1f575182fd767de39a":"- normale \u0026 Daemon-Threads\n\n- Daemon wartet auf Ereignisse\n- Verhindert nicht Beendung der JVM\n\n- setDaemon()","4640f06780ec07b02e33d095e795e01a":"- Enthalten Threads und T.-Gruppen\n- baumartige Struktur\n- Operationen: auf jedem Thread darin\n\n- Schätzung Anzahl aktiver Threads","e6e049735633c7e744a202db85d77058":"Frage: Kennt jemand \"Factory Pattern\"?\n\n- Fabrikmethode: erzeugt statt Konstruktor Objekte\n  - \"new\" an einem Ort\n  - Unterklassen implementieren unterschiedlich abstrakte Methode\n\n- ThreadFactory\n- newThread()","1c1514966563317a2617f574dd3e987e":"- checked exception\n  - catch\n  - throws\n    - geht nicht für run()\n\n- unchecked exception (ArrayIndexOutOfBoundsException)\n  - StackTrace \u0026 Ende\n  - UncaughtExceptionHandler","77ef413baeca3f633987a67d3545e5bc":"[dateShared] bleibt beim ursprünglichen Wert.","89ba853b4391890adb91d3dfcbf7a7ef":"Seitenzahlen -\u003e Fortschrittsleiste\n\n!!! ZEIT EINSTELLEN !!!","ef4ececc10dfaa6e0693a74e2cd47e07":"-\u003e isAlive()","46fa92f04b74e6f66b02590e2488ba22":"Fragen?"}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+
+				transition: "fade",
+				backgroundTransition: "fade",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js' },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'lib/reveal-plugins/zoom/zoom.js', async: true }
+				]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
