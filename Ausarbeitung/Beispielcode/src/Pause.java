@@ -10,7 +10,7 @@ try {
     Thread.sleep(1000);
     TimeUnit.SECONDS.sleep(1);
 } catch (InterruptedException e) {
-    throw new NumberFormatException();
+    // ...
 }
 
         }

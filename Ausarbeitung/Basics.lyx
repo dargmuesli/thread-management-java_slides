@@ -895,7 +895,7 @@ try {
 
 \begin_layout Plain Layout
 
-    throw new NumberFormatException();
+    // ...
 \end_layout
 
 \begin_layout Plain Layout
