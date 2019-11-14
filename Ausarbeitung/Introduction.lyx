@@ -116,11 +116,9 @@ customHeadersFooters
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine biblatex
-\cite_engine_type authoryear
+\cite_engine basic
+\cite_engine_type default
 \biblio_style plain
-\biblatex_bibstyle authoryear
-\biblatex_citestyle authoryear
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -196,7 +194,20 @@ target "https://www.tiobe.com/tiobe-index/"
 \end_inset
 
  die aktuell populärste Programmiersprache.
- Die Ausarbeitung ordnet den Begriff 
+ Die Kapitelstruktur dieses Dokuments orientiert sich an der der prim.
+ Literaturquelle 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9781787124417"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Die vorliegende Ausarbeitung ordnet den Begriff 
 \lang english
 Threads
 \lang ngerman

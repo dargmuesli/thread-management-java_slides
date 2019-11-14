@@ -219,8 +219,7 @@ Threads
  Von diesen Eigenschaften können nur Name und Priorität nachträglich geändert
  werden.
  ID und Status werden von Java verwaltet.
- Alle diese Eigenschaften werden automatisch mit Werten initialisiert, sofern
- sie nicht vorher vom Entwickler bestimmt wurden.
+ Alle diese Eigenschaften werden automatisch mit Werten initialisiert.
 \end_layout
 
 \begin_layout Standard
@@ -837,7 +836,7 @@ ThreadGroup
 
 \end_inset
 
- fasst sowohl 
+ kann sowohl 
 \lang english
 Threads
 \lang ngerman
@@ -845,7 +844,7 @@ Threads
 \lang english
 Thread
 \lang ngerman
--Gruppen in einer baumartigen Struktur zusammen.
+-Gruppen in einer baumartigen Struktur zusammenfassen.
  Operationen, die auf eine 
 \lang english
 Thread
@@ -860,11 +859,11 @@ Threads
 Thread
 \lang ngerman
 -Gruppe z.B.
- auch eine Schätzung der Anzahl in ihr aktiver 
+ auch eine Schätzung der Anzahl von 
 \lang english
 Threads
 \lang ngerman
- abgefragt werden.
+ abgefragt werden, die zum Zeitpunkt der Schätzung ausgeführt werden.
 \end_layout
 
 \begin_layout Standard
@@ -971,7 +970,7 @@ new
 \end_inset
 
 -Operator befindet sich beispielsweise gekapselt in dieser Methode, was
- einen Austausch der zu erzeugenden Klasse vereinfacht.
+ einen Austausch der zu erzeugenden Objekte vereinfacht.
  Oft definiert eine Klasse eine abstrakte Fabrikmethode, um ihren Unterklassen
  zu ermöglichen, die Methode verschieden zu implementieren.
 \end_layout
@@ -1121,7 +1120,7 @@ if (t == null) {
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Erzeugen eines 
+Erzeugen (k)eines 
 \lang english
 Threads
 \lang ngerman
@@ -1669,14 +1668,21 @@ Startet man mehrere
 \lang english
 Threads
 \lang ngerman
- mit Instanzen derselben Runnable-Klasse, wirkt sich das Ändern eines Instanzatt
-ibuts des Runnables auf alle 
+ mit Instanzen derselben 
+\lang english
+Runnable
+\lang ngerman
+-Klasse, wirkt sich das Ändern eines Instanzattibuts des 
+\lang english
+Runnables
+\lang ngerman
+ auf alle 
 \lang english
 Threads
 \lang ngerman
  aus.
- Attribute, die mit einer unabhängigen Variablenkopie arbeiten sollen, können
- als Typ der Klasse
+ Soll der Wert eines Instanzattributs unabhängig von Änderungen in anderen
+ Threads sein, kann die Klasse des Attributs durch die Klasse
 \begin_inset space ~
 \end_inset
 
@@ -1693,8 +1699,51 @@ ThreadLocal
 
 \end_inset
 
- definiert werden.
- Sie sind aufgrund dieser Lokalität üblicherweise
+ ersetzt werden, deren Typ die ursprüngliche Variablenklasse ist.
+ Jeder 
+\lang english
+Thread
+\lang ngerman
+, der auf ein Instanzattribut zugreift, dessen Typ
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+ThreadLocal
+\end_layout
+
+\end_inset
+
+ ist, arbeitet mit einer eigenen Variablenkopie des Instanzattributs.
+ Attribute der Klasse
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset listings
+lstparams "language=Java"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+ThreadLocal
+\end_layout
+
+\end_inset
+
+ sind aufgrund ihrer Lokalität zu 
+\lang english
+Threads
+\lang ngerman
+ üblicherweise
 \begin_inset space ~
 \end_inset
 

@@ -225,8 +225,8 @@ literal "false"
 \begin_layout Standard
 Betriebssysteme teilen laufenden Prozessen Rechenzeit auf den verfügbaren
  Prozessorkernen zu.
- Ist nur ein Prozessorkern verfügbar, wechseln sich Prozesse in der Ausführungsr
-eihenfolge sehr schnell untereinander ab, wodurch sie pseudoparallel wirken.
+ Prozesse wechseln sich in der Ausführungsreihenfolge auf einem Prozessorkern
+ sehr schnell untereinander ab, wodurch sie pseudoparallel wirken.
  Dieser Vorgang nennt sich 
 \shape italic
 \lang english
@@ -236,6 +236,8 @@ time slicing
 .
  Echte Parallelität ist nur mit mehreren gleichzeitig verfügbaren Prozessorkerne
 n möglich.
+ Der Begriff Nebenläufigkeit ist im Vergleich zum Begriff Parallelität allgemein
+er: Nebenläufigkeit erfordert keine echt gleichzeitige Ausführung.
 \end_layout
 
 \begin_layout Standard
