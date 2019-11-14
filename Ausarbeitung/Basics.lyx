@@ -177,7 +177,7 @@ Im Folgenden wird der Umgang mit
 Thread
 \lang ngerman
 -Objekten zur nebenläufigen Programmierung in Java vorgestellt.
- Alle genannten Klassen sind Teil des 
+ Alle in diesem Kapitel genannten Klassen sind Teil des 
 \begin_inset listings
 lstparams "language=Java"
 inline true
@@ -1056,8 +1056,8 @@ join()
 \lang english
 Threads
 \lang ngerman
- beendet wurde, das Gesamtergebnis schneller ausgeben, als eine sequentielle
- Berechnung gedauert hätte.
+ beendet wurde, das Gesamtergebnis früher ausgeben, als es bei einer sequentiell
+en Berechnung möglich gewesen wäre.
 \end_layout
 
 \begin_layout Standard
@@ -1110,10 +1110,9 @@ public static void main(String[] args) throws InterruptedException {
 
 \begin_layout Plain Layout
 
-    t.join(1000); // Wartet maximal eine Sekunde auf Beendigung des Threads
- [t].
+    t.join(); // Wartet auf Beendigung des Threads [t].
  Kann eine InterruptedException auslösen.
- Siehe Methodensignatur.
+ Siehe Methodensignatur oben.
 \end_layout
 
 \begin_layout Plain Layout
@@ -1366,6 +1365,15 @@ noprefix "false"
 \end_inset
 
 ) zurückzusetzen.
+ Vergleiche mit Kapitel 7 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9780321349606"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1396,7 +1404,8 @@ status open
 
 \begin_layout Plain Layout
 
-Thread t = new Thread(() -> {});
+Thread t = new Thread(() -> {}); // run()-Methode von Runnable als Lambda-Ausdru
+ck.
 \end_layout
 
 \begin_layout Plain Layout
@@ -1407,6 +1416,11 @@ t.start();
 \begin_layout Plain Layout
 
 t.interrupt();
+\end_layout
+
+\begin_layout Plain Layout
+
+t.join();
 \end_layout
 
 \begin_layout Plain Layout
